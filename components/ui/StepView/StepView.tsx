@@ -1,4 +1,5 @@
-import { VStack, HStack, Heading } from '@chakra-ui/react'
+import { VStack, Box, HStack, Text, Flex } from '@chakra-ui/react'
+import { Heading } from '../Heading'
 
 export type StepViewProps = {
   title: string
@@ -11,10 +12,12 @@ export const StepView: React.FC<StepViewProps> = ({ title, currentStep, numOfSte
     <VStack spacing='48px' align='left'>
       <VStack align='left'>
         <HStack>
-          <Heading as='h2' size='2xl'>{currentStep}</Heading>
-          <Heading color='gray' as='h5' size='md'>{`/ ${numOfStep}`}</Heading>
+          <Heading variant='screenTitle'>{currentStep}</Heading>
+          <Flex height='36px'>
+            <Text color='gray.500' alignSelf='flex-end'>{`/ ${numOfStep}`}</Text>
+          </Flex>
         </HStack>
-        <Heading as='h3' size='lg'>{title}</Heading>
+        <Heading variant='sectionTitle'>{title}</Heading>
       </VStack>
       {children}
     </VStack>
