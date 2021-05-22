@@ -1,10 +1,8 @@
 import { FormControl, FormLabel, FormErrorMessage} from '@chakra-ui/react'
 import { TextInput, TextInputProps } from '../../TextInput'
+import { DefaultLabelAndInputProps } from '../type'
 
-export type LabelAndTextInputProps = Pick<TextInputProps, 'onChange' | 'placeholder' | 'value'> & {
-  label?: string
-  errorMessage?: string
-}
+export type LabelAndTextInputProps = Pick<TextInputProps, 'onChange' | 'placeholder' | 'value'> & DefaultLabelAndInputProps
 
 export const LabelAndTextInput: React.FC<LabelAndTextInputProps> = ({
   label,
