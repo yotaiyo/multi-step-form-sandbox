@@ -1,5 +1,3 @@
-const IndexPage = () => (
-  <h1>This is IndexPage</h1>
-)
+import { IndexScreen } from '../components/pages/IndexScreen'
 
-export default IndexPage
+export default IndexScreen

@@ -1,6 +1,6 @@
 import { HStack, Box } from '@chakra-ui/react'
 import { Select } from '../Select'
-import { range } from '../../utils'
+import { range } from '../../../utils'
 
 export type DateDropdownProps = {
   yearValue?: number
