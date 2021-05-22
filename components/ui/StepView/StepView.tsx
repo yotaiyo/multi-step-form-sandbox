@@ -42,8 +42,8 @@ export const StepView: React.FC<StepViewProps> = ({
           <VStack alignItems='flex-start' onClick={onClickPrevious} style={{ cursor: 'pointer' }}>
             <Text>previous</Text>
             <HStack>
-              <ArrowBackIcon color='orange.500' />
-              <Text color='orange.500' fontWeight='600'>{previousTitle}</Text>
+              <ArrowBackIcon boxSize='6' color='orange.500' />
+              <Text fontSize='large' color='orange.500' fontWeight='600'>{previousTitle}</Text>
             </HStack>
           </VStack>
 
@@ -52,8 +52,8 @@ export const StepView: React.FC<StepViewProps> = ({
           <VStack alignItems='flex-end' onClick={onClickNext} style={{ cursor: 'pointer' }}>
             <Text>next</Text>
             <HStack>
-              <Text color='blue.500' fontWeight='600'>{nextTitle}</Text>
-              <ArrowForwardIcon color='blue.500' />
+              <Text fontSize='large' color='blue.500' fontWeight='600'>{nextTitle}</Text>
+              <ArrowForwardIcon boxSize='6' color='blue.500' />
             </HStack>
           </VStack>
         </Flex>
