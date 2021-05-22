@@ -1,4 +1,4 @@
-import { VStack, Box, HStack, Text, Flex } from '@chakra-ui/react'
+import { VStack, HStack, Text, Flex } from '@chakra-ui/react'
 import { Heading } from '../Heading'
 
 export type StepViewProps = {
