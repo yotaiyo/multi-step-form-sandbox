@@ -13,7 +13,7 @@ export const StepView: React.FC<StepViewProps> = ({ title, currentStep, numOfSte
       <VStack align='left'>
         <HStack>
           <Heading variant='screenTitle'>{currentStep}</Heading>
-          <Flex height='36px'>
+          <Flex height='40px'>
             <Text color='gray.500' alignSelf='flex-end'>{`/ ${numOfStep}`}</Text>
           </Flex>
         </HStack>
