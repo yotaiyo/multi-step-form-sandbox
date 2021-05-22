@@ -1,4 +1,4 @@
-import { VStack, HStack, Text, Flex, Spacer } from '@chakra-ui/react'
+import { VStack, HStack, Text, Flex, Spacer, Box } from '@chakra-ui/react'
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
 
 import { Heading } from '../Heading'
@@ -24,9 +24,9 @@ export const StepView: React.FC<StepViewProps> = ({
   children
 }) => {
   return (
-    <VStack align='left'>
-      <VStack spacing='48px' align='left' width='60%'>
-        <VStack align='left'>
+    <VStack align='unset'>
+      <VStack spacing='48px' align='unset' width='60%'>
+        <VStack align='unset'>
           <HStack>
             <Heading variant='screenTitle'>{currentStep}</Heading>
             <Flex height='40px'>
@@ -39,22 +39,22 @@ export const StepView: React.FC<StepViewProps> = ({
         {children}
 
         <Flex>
-          <VStack align='left' onClick={onClickPrevious} style={{ cursor: 'pointer' }}>
+          <VStack alignItems='flex-start' onClick={onClickPrevious} style={{ cursor: 'pointer' }}>
+            <Text>previous</Text>
             <HStack>
-              <ArrowBackIcon />
-              <Text>previous</Text>
+              <ArrowBackIcon color='orange.500' />
+              <Text color='orange.500' fontWeight='600'>{previousTitle}</Text>
             </HStack>
-            <Text>{previousTitle}</Text>
           </VStack>
 
           <Spacer />
 
-          <VStack  onClick={onClickNext} style={{ cursor: 'pointer' }}>
+          <VStack alignItems='flex-end' onClick={onClickNext} style={{ cursor: 'pointer' }}>
+            <Text>next</Text>
             <HStack>
-              <Text>next</Text>
-              <ArrowForwardIcon />
+              <Text color='blue.500' fontWeight='600'>{nextTitle}</Text>
+              <ArrowForwardIcon color='blue.500' />
             </HStack>
-            <Text>{nextTitle}</Text>
           </VStack>
         </Flex>
       </VStack>
