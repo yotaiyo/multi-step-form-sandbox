@@ -1,6 +1,7 @@
 import { Center, Box } from '@chakra-ui/react'
 import { BasicInfoStep } from './Steps/BasicInfoStep'
 import { AddressStep } from './Steps/AddressStep'
+import { QuestionStep } from './Steps/QuestionStep'
 import { StepView } from '../../ui'
 
 export const IndexScreen = () => (
