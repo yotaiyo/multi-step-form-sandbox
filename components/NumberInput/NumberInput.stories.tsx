@@ -12,9 +12,17 @@ const Template: Story<NumberInputProps> = (args) => <NumberInput {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
+  defaultValue: 10,
+  min: 10,
+  max: 100,
+  step: 5,
 };
 
 export const IsError = Template.bind({});
 IsError.args = {
+  defaultValue: 10,
+  min: 10,
+  max: 100,
+  step: 5,
   isError: true
 };
