@@ -15,7 +15,6 @@ export const TextInput: React.FC<TextInputProps> = ({ value, onChange, placehold
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-      size="md"
       isInvalid={isError}
     />
   )

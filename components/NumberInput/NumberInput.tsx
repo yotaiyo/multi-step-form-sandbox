@@ -13,7 +13,6 @@ export const NumberInput: React.FC<NumberInputProps> = ({ value, onChange, isErr
       type="number"
       value={value}
       onChange={onChange}
-      size="md"
       isInvalid={isError}
     />
   )
