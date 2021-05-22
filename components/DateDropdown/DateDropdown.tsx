@@ -31,7 +31,7 @@ export const DateDropdown: React.FC<DateDropdownProps> = ({
         </Select>
       </Box>
 
-      <Box width='80px'>
+      <Box width='100px'>
         <Select value={monthValue} onChange={onChange}>
           {
             range(1, 12).map((month) => (
@@ -41,7 +41,7 @@ export const DateDropdown: React.FC<DateDropdownProps> = ({
         </Select>
       </Box>
 
-      <Box width='80px'>
+      <Box width='100px'>
         <Select value={dayValue} onChange={onChange}>
           {
             range(1, 31).map((day) => (
