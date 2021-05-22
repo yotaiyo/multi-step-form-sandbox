@@ -1,5 +1,5 @@
 import { FormControl, FormLabel, FormErrorMessage} from '@chakra-ui/react'
-import { TextInput, TextInputProps } from '../TextInput'
+import { TextInput, TextInputProps } from '../../TextInput'
 
 export type LabelAndTextInputProps = Pick<TextInputProps, 'onChange' | 'placeholder' | 'value'> & {
   label?: string
