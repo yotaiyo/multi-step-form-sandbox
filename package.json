@@ -18,6 +18,7 @@
     "next": "latest",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-hook-form": "^7.6.5",
     "storybook-addon-performance": "^0.15.2"
   },
   "devDependencies": {
