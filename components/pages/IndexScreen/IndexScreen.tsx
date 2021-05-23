@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { RecoilRoot } from 'recoil'
 import { Center, Box } from '@chakra-ui/react'
 import { BasicInfoStep } from './Steps/BasicInfoStep'
 import { AddressStep } from './Steps/AddressStep'
@@ -32,20 +33,22 @@ export const IndexScreen = () => {
   }
 
   return (
-    <Center>
-      <Box backgroundColor='white' width='1024px' padding='24px' borderRadius='12px' >
-        <StepView
-          title={stepInfos[stepIndex].title}
-          currentStep={stepIndex + 1}
-          numOfStep={stepInfos.length}
-          previousTitle={stepIndex !== 0 ? stepInfos[stepIndex - 1].title : undefined}
-          nextTitle={stepIndex !== stepInfos.length - 1 ? stepInfos[stepIndex + 1].title : undefined}
-          onClickPrevious={onClickPrevious}
-          onClickNext={onClickNext}
-        >
-          {stepInfos[stepIndex].children}
-        </StepView>
-      </Box>
-    </Center>
+    <RecoilRoot>
+      <Center>
+        <Box backgroundColor='white' width='1024px' padding='24px' borderRadius='12px' >
+          <StepView
+            title={stepInfos[stepIndex].title}
+            currentStep={stepIndex + 1}
+            numOfStep={stepInfos.length}
+            previousTitle={stepIndex !== 0 ? stepInfos[stepIndex - 1].title : undefined}
+            nextTitle={stepIndex !== stepInfos.length - 1 ? stepInfos[stepIndex + 1].title : undefined}
+            onClickPrevious={onClickPrevious}
+            onClickNext={onClickNext}
+          >
+            {stepInfos[stepIndex].children}
+          </StepView>
+        </Box>
+      </Center>
+    </RecoilRoot>
   )
 }
