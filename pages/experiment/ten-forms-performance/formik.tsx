@@ -1,3 +1,3 @@
-import { Formik } from '../../../components/pages/ExperimentScreen/TenFormsPerformance/formik'
+import { Formik } from '../../../components/pages/ExperimentScreen/TenFormsPerformance/Formik'
 
 export default Formik
