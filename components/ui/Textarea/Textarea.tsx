@@ -1,3 +1,4 @@
+import React from 'react'
 import { Textarea as ChakraTextArea } from '@chakra-ui/react'
 
 export type TextareaProps = {
@@ -9,16 +10,17 @@ export type TextareaProps = {
   isError?: boolean
 }
 
-export const Textarea: React.FC<TextareaProps> = ({
+export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(({
   id,
   name,
   value,
   onChange,
   placeholder,
   isError
-}) => {
+}, ref) => {
   return (
     <ChakraTextArea
+      ref={ref}
       id={id}
       name={name}
       value={value}
@@ -27,4 +29,4 @@ export const Textarea: React.FC<TextareaProps> = ({
       isInvalid={isError}
     />
   )
-}
+})
