@@ -1,7 +1,9 @@
-
+import React from 'react'
 import { Input } from '@chakra-ui/react'
 
 export type TextInputProps = {
+  id?: string
+  name?: string
   value?: string
   onChange?: React.ChangeEventHandler<HTMLInputElement>
   onBlur?: React.FocusEventHandler<HTMLInputElement>
@@ -9,9 +11,11 @@ export type TextInputProps = {
   isError?: boolean
 }
 
-export const TextInput: React.FC<TextInputProps> = ({ value, onChange, onBlur, placeholder, isError }) => {
+export const TextInput: React.FC<TextInputProps> = React.forwardRef(({ id, name, value, onChange, onBlur, placeholder, isError }) => {
   return (
     <Input
+      id={id}
+      name={name}
       type="text"
       value={value}
       onChange={onChange}
@@ -20,4 +24,4 @@ export const TextInput: React.FC<TextInputProps> = ({ value, onChange, onBlur, p
       isInvalid={isError}
     />
   )
-}
+})
