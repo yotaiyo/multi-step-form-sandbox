@@ -9,15 +9,15 @@ import { StepView } from '../../ui'
 const stepInfos = [
   {
     title: '個人情報入力',
-    children: <BasicInfoStep />
+    component: <BasicInfoStep />
   },
   {
     title: '住所入力',
-    children: <AddressStep />
+    component: <AddressStep />
   },
   {
     title: 'いくつかの質問に回答してください',
-    children: <QuestionStep />
+    component: <QuestionStep />
   }
 ]
 
@@ -45,7 +45,7 @@ export const IndexScreen = () => {
             onClickPrevious={onClickPrevious}
             onClickNext={onClickNext}
           >
-            {stepInfos[stepIndex].children}
+            {stepInfos[stepIndex].component}
           </StepView>
         </Box>
       </Center>
