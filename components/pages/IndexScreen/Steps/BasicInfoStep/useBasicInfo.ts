@@ -1,7 +1,5 @@
-import React from 'react'
-import { useForm, useWatch } from 'react-hook-form'
+import { useForm } from 'react-hook-form'
 import { usePersonalInfoRecoilStates } from '../../../../../recoil'
-import { useDebounce } from '../../../../../hooks'
 
 
 export const useBasicInfo = () => {
@@ -17,15 +15,13 @@ export const useBasicInfo = () => {
     resolver: undefined
   })
 
-  const values = useWatch({ control: methods.control })
-  const debouncedValue = useDebounce(values, 500)
-
-  React.useEffect(() => {
-    // FIXME: 変更を加えた値のみ更新したい
-    setBasicInfo(debouncedValue)
-  }, [debouncedValue])
+  const setValues = () => {
+    const values = methods.getValues()
+    setBasicInfo(values)
+  }
 
   return {
-    methods
+    methods,
+    setValues
   }
 }
