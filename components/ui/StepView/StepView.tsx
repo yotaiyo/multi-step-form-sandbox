@@ -1,4 +1,4 @@
-import { VStack, HStack, Text, Flex, Spacer, Box } from '@chakra-ui/react'
+import { VStack, HStack, Text, Flex, Spacer } from '@chakra-ui/react'
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
 
 import { Heading } from '../Heading'
