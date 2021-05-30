@@ -11,9 +11,10 @@ export type TextInputProps = {
   isError?: boolean
 }
 
-export const TextInput: React.FC<TextInputProps> = React.forwardRef(({ id, name, value, onChange, onBlur, placeholder, isError }) => {
+export const TextInput = React.forwardRef<HTMLInputElement, TextInputProps>(({ id, name, value, onChange, onBlur, placeholder, isError }, ref) => {
   return (
     <Input
+      ref={ref}
       id={id}
       name={name}
       type="text"

@@ -1,10 +1,11 @@
+import React from 'react'
 import { FormControl, FormLabel, FormErrorMessage} from '@chakra-ui/react'
 import { TextInput, TextInputProps } from '../../TextInput'
 import { DefaultLabelAndInputProps } from '../type'
 
 export type LabelAndTextInputProps = Omit<TextInputProps, 'isError'> & DefaultLabelAndInputProps
 
-export const LabelAndTextInput: React.FC<LabelAndTextInputProps> = ({
+export const LabelAndTextInput = React.forwardRef<HTMLInputElement, LabelAndTextInputProps>(({
   id,
   name,
   errorMessage,
@@ -13,11 +14,12 @@ export const LabelAndTextInput: React.FC<LabelAndTextInputProps> = ({
   placeholder,
   value,
   label,
-}) => {
+}, ref) => {
   return (
     <FormControl isInvalid={!!errorMessage}>
       {label && <FormLabel>{label}</FormLabel>}
       <TextInput
+        ref={ref}
         id={id}
         name={name}
         onChange={onChange}
@@ -29,4 +31,4 @@ export const LabelAndTextInput: React.FC<LabelAndTextInputProps> = ({
       {errorMessage && <FormErrorMessage>{errorMessage}</FormErrorMessage>}
     </FormControl>
   )
-}
+})
