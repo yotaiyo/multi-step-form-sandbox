@@ -1,27 +1,23 @@
-import { VStack, HStack, Text, Flex, Spacer } from '@chakra-ui/react'
-import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
+import { VStack, HStack, Text, Flex } from '@chakra-ui/react'
 
 import { Heading } from '../Heading'
+import { Pagination, PaginationProps } from '../Pagination'
 
-export type StepViewProps = {
+export type StepViewProps = PaginationProps & {
   title: string
   currentStep: number
   numOfStep: number
-  previousTitle?: string
-  nextTitle?: string
-  onClickPrevious?: () => void
-  onClickNext?: () => void
 }
 
 export const StepView: React.FC<StepViewProps> = ({
   title,
   currentStep,
   numOfStep,
+  children,
   previousTitle,
   nextTitle,
   onClickPrevious,
-  onClickNext,
-  children
+  onClickNext
 }) => {
   return (
     <VStack align='unset'>
@@ -38,30 +34,7 @@ export const StepView: React.FC<StepViewProps> = ({
 
         {children}
 
-        <Flex>
-          {previousTitle &&
-            <VStack alignItems='flex-start' onClick={onClickPrevious} style={{ cursor: 'pointer' }}>
-              <Text>previous</Text>
-              <HStack>
-                <ArrowBackIcon boxSize='6' color='orange.500' />
-                <Text fontSize='large' color='orange.500' fontWeight='600'>{previousTitle}</Text>
-              </HStack>
-            </VStack>
-          }
-
-          <Spacer />
-
-          {
-            nextTitle &&
-              <VStack alignItems='flex-end' onClick={onClickNext} style={{ cursor: 'pointer' }}>
-                <Text>next</Text>
-                <HStack>
-                  <Text fontSize='large' color='blue.500' fontWeight='600'>{nextTitle}</Text>
-                  <ArrowForwardIcon boxSize='6' color='blue.500' />
-                </HStack>
-              </VStack>
-          }
-        </Flex>
+        <Pagination previousTitle={previousTitle} nextTitle={nextTitle} onClickPrevious={onClickPrevious} onClickNext={onClickNext} />
       </VStack>
     </VStack>
   )
