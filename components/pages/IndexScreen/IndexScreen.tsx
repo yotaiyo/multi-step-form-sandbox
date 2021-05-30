@@ -1,75 +1,38 @@
 import React, { useState } from 'react'
 import { RecoilRoot } from 'recoil'
 import { Center, Box } from '@chakra-ui/react'
-import { BasicInfoStep, BasicInfoStepProps } from './Steps/BasicInfoStep'
-// import { AddressStep } from './Steps/AddressStep'
-// import { QuestionStep } from './Steps/QuestionStep'
+import { DefaultStepProps } from './Steps/types'
+import { BasicInfoStep,  } from './Steps/BasicInfoStep'
+import { AddressStep } from './Steps/AddressStep'
+import { QuestionStep } from './Steps/QuestionStep'
 
-const stepConfigs = [
+type StepConfig = {
+  title: string
+  render: (props: DefaultStepProps) => React.ReactNode
+}
+
+const stepConfigs: StepConfig[] = [
   {
     title: '個人情報入力',
-    render: ({
-      currentStep,
-      numOfStep,
-      previousTitle,
-      nextTitle,
-      onClickPrevious,
-      onClickNext }: BasicInfoStepProps
-    ) => {
+    render: (props) => {
       return (
-        <BasicInfoStep
-          currentStep={currentStep}
-          numOfStep={numOfStep}
-          previousTitle={previousTitle}
-          nextTitle={nextTitle}
-          onClickPrevious={onClickPrevious}
-          onClickNext={onClickNext}
-        />
+        <BasicInfoStep {...props} />
       )
     }
   },
   {
-    title: '個人情報入力',
-    render: ({
-      currentStep,
-      numOfStep,
-      previousTitle,
-      nextTitle,
-      onClickPrevious,
-      onClickNext }: BasicInfoStepProps
-    ) => {
+    title: '住所入力',
+    render: (props) => {
       return (
-        <BasicInfoStep
-          currentStep={currentStep}
-          numOfStep={numOfStep}
-          previousTitle={previousTitle}
-          nextTitle={nextTitle}
-          onClickPrevious={onClickPrevious}
-          onClickNext={onClickNext}
-        />
+        <AddressStep {...props} />
       )
     }
-  }
-  ,
+  },
   {
-    title: '個人情報入力',
-    render: ({
-      currentStep,
-      numOfStep,
-      previousTitle,
-      nextTitle,
-      onClickPrevious,
-      onClickNext }: BasicInfoStepProps
-    ) => {
+    title: 'いくつかの質問に答えてください',
+    render: (props) => {
       return (
-        <BasicInfoStep
-          currentStep={currentStep}
-          numOfStep={numOfStep}
-          previousTitle={previousTitle}
-          nextTitle={nextTitle}
-          onClickPrevious={onClickPrevious}
-          onClickNext={onClickNext}
-        />
+        <QuestionStep {...props} />
       )
     }
   }
@@ -79,7 +42,7 @@ const stepConfigs = [
 export const IndexScreen = () => {
   const [stepIndex, setStepIndex] = useState(0)
 
-  const back = () => {
+  const backward = () => {
     setStepIndex(stepIndex - 1)
   }
 
@@ -92,7 +55,8 @@ export const IndexScreen = () => {
       <Center>
         <Box backgroundColor='white' width='1024px' padding='24px' borderRadius='12px' >
           {stepConfigs[stepIndex].render({
-            onClickPrevious: back,
+            title: stepConfigs[stepIndex].title,
+            onClickPrevious: backward,
             onClickNext: forward,
             previousTitle: stepIndex !== 0 ? stepConfigs[stepIndex - 1].title : undefined,
             nextTitle: stepIndex !== stepConfigs.length - 1 ? stepConfigs[stepIndex + 1].title : undefined,

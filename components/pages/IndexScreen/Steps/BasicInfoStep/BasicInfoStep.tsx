@@ -1,10 +1,10 @@
 import { VStack } from '@chakra-ui/react'
-import { LabelAndTextInput, StepView, StepViewProps } from '../../../../ui'
+import { LabelAndTextInput, StepView } from '../../../../ui'
 import { useBasicInfo } from './useBasicInfo'
+import { DefaultStepProps } from '../types'
 
-export type BasicInfoStepProps = Omit<StepViewProps, 'title'>
-
-export const BasicInfoStep: React.FC<BasicInfoStepProps> = ({
+export const BasicInfoStep: React.FC<DefaultStepProps> = ({
+  title,
   currentStep,
   numOfStep,
   previousTitle,
@@ -17,7 +17,7 @@ export const BasicInfoStep: React.FC<BasicInfoStepProps> = ({
   console.count('BasicInfoStepがレンダリングされた回数')
   return (
     <StepView
-      title='個人情報入力'
+      title={title}
       currentStep={currentStep}
       numOfStep={numOfStep}
       previousTitle={previousTitle}
