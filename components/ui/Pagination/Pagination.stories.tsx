@@ -19,6 +19,6 @@ const Template: Story<PaginationProps> = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  previousTitle: 'previous',
+  previousTitle: 'previousTitle',
   nextTitle: 'nextTitle'
 };
