@@ -2,27 +2,28 @@ import { atom } from 'recoil'
 import { AtomKeys } from '../../atomKeys'
 
 export type BasicInfo = {
-  name?: string
-  nameKana?: string
-  birthDay?: Date
-  gender?: 'man' | 'woman' | 'other' | 'unanswered'
-  country?: string
-  birthPlace?: string
-  language?: string
-  company?: string
-  // businessCategories?: string[]
-  // skills?: string[]
+  name: string | null
+  nameKana: string | null
+  birthDay: Date | null
+  gender: 'man' | 'woman' | 'other' | 'unanswered' | null
+  country: string | null
+  birthPlace: string | null
+  language: string | null
+  company: string | null
+  job: string | null
+  // skills: string[] | null
 }
 
 export const defaultBasicInfoState: BasicInfo = {
-  name: undefined,
-  nameKana: undefined,
-  birthDay: undefined,
-  gender: undefined,
-  country: undefined,
-  birthPlace: undefined,
-  language: undefined,
-  company: undefined
+  name: null,
+  nameKana: null,
+  birthDay: null,
+  gender: null,
+  country: null,
+  birthPlace: null,
+  language: null,
+  company: null,
+  job: null
 }
 
 export const basicInfoState = atom<BasicInfo>({

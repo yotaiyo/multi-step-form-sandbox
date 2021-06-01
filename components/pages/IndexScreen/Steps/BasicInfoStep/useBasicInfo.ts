@@ -7,10 +7,7 @@ export const useBasicInfo = () => {
 
   const methods = useForm({
     mode: 'onBlur',
-    defaultValues: {
-      name: basicInfo.name,
-      job: basicInfo.job,
-    },
+    defaultValues: basicInfo,
     // FIXME
     resolver: undefined
   })
