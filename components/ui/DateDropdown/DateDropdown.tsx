@@ -19,6 +19,7 @@ export const DateDropdown = React.forwardRef<HTMLSelectElement, DateDropdownProp
   yearId,
   monthId,
   dayId,
+  // FIXME: name渡していない
   yearValue,
   monthValue,
   dayValue,

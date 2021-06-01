@@ -12,6 +12,7 @@ export const LabelAndDateInput = React.forwardRef<HTMLSelectElement, LabelAndDat
   yearId,
   monthId,
   dayId,
+  // FIXME: name渡していない
   yearValue,
   monthValue,
   dayValue,

@@ -4,7 +4,9 @@ import { AtomKeys } from '../../atomKeys'
 export type BasicInfo = {
   name: string | null
   nameKana: string | null
-  birthDay: Date | null
+  birthDayYear: number | null
+  birthDayMonth: number | null
+  birthDayDay: number | null
   gender: 'man' | 'woman' | 'other' | 'unanswered' | null
   country: string | null
   birthPlace: string | null
@@ -17,7 +19,9 @@ export type BasicInfo = {
 export const defaultBasicInfoState: BasicInfo = {
   name: null,
   nameKana: null,
-  birthDay: null,
+  birthDayYear: null,
+  birthDayMonth: null,
+  birthDayDay: null,
   gender: null,
   country: null,
   birthPlace: null,

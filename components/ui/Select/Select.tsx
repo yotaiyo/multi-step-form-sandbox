@@ -24,10 +24,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(({
       id={id}
       name={name}
       value={value}
-      onChange={(e) => {
-        console.log(e.target.value)
-        onChange && onChange(e)
-      }}
+      onChange={onChange}
       onBlur={onBlur}
     >
       {children}
