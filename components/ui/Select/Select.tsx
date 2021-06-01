@@ -3,6 +3,7 @@ import { Select as ChakraSelect } from '@chakra-ui/react'
 
 export type SelectProps = {
   id?: string
+  name?: string
   value?: string | number
   onChange?: React.ChangeEventHandler<HTMLSelectElement>
   onBlur?: React.FocusEventHandler<HTMLSelectElement>
@@ -11,6 +12,7 @@ export type SelectProps = {
 
 export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(({
   id,
+  name,
   value,
   onChange,
   onBlur,
@@ -20,8 +22,12 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(({
     <ChakraSelect
       ref={ref}
       id={id}
+      name={name}
       value={value}
-      onChange={onChange}
+      onChange={(e) => {
+        console.log(e.target.value)
+        onChange && onChange(e)
+      }}
       onBlur={onBlur}
     >
       {children}
