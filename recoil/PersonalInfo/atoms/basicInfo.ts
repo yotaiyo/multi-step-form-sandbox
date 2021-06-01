@@ -3,14 +3,26 @@ import { AtomKeys } from '../../atomKeys'
 
 export type BasicInfo = {
   name?: string
-  job?: string
-  birthday?: Date
+  nameKana?: string
+  birthDay?: Date
+  gender?: 'man' | 'woman' | 'other' | 'unanswered'
+  country?: string
+  birthPlace?: string
+  language?: string
+  company?: string
+  // businessCategories?: string[]
+  // skills?: string[]
 }
 
-export const defaultBasicInfoState = {
+export const defaultBasicInfoState: BasicInfo = {
   name: undefined,
-  job: undefined,
-  birthday: undefined
+  nameKana: undefined,
+  birthDay: undefined,
+  gender: undefined,
+  country: undefined,
+  birthPlace: undefined,
+  language: undefined,
+  company: undefined
 }
 
 export const basicInfoState = atom<BasicInfo>({
