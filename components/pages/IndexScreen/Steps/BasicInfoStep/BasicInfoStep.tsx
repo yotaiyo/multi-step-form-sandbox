@@ -71,7 +71,7 @@ export const BasicInfoStep: React.FC<DefaultStepProps> = ({
                 }
               </Select>
             </Box>
-            <Box width='120px'>
+            <Box width='100px'>
               <Select {...register('birthDayDay')}>
                 {
                   range(1, 31).map((day) => (
