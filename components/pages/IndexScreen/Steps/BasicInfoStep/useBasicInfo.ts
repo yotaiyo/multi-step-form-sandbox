@@ -1,3 +1,4 @@
+import React from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
@@ -22,6 +23,10 @@ export const useBasicInfo = () => {
     const values = methods.getValues()
     setBasicInfo(values)
   }
+
+  React.useEffect(() => {
+    // FIXME
+  }, [methods.formState.isValid])
 
   return {
     methods,
