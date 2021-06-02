@@ -34,8 +34,20 @@ export const BasicInfoStep: React.FC<DefaultStepProps> = ({
       }}
     >
       <VStack spacing="24px">
-        <LabelAndTextInput label='お名前' id='name' errorMessage={errors.name?.message} {...register('name')} />
-        <LabelAndTextInput label='フリガナ' id='nameKana' errorMessage={errors.nameKana?.message} {...register('nameKana')} />
+        <LabelAndTextInput
+          label='お名前'
+          id='name'
+          errorMessage={errors.name?.message}
+          required={true}
+          {...register('name')}
+        />
+        <LabelAndTextInput
+          label='フリガナ'
+          id='nameKana'
+          errorMessage={errors.nameKana?.message}
+          required={true}
+          {...register('nameKana')}
+        />
 
         {/* FIXME: コンポーネントとして切り出す */}
         <FormControl>
