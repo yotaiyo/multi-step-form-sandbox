@@ -13,6 +13,7 @@ export type BasicInfo = {
   language: string | null
   company: string | null
   job: string | null
+  // FIXME
   // skills: string[] | null
 }
 

@@ -50,6 +50,7 @@ export const BasicInfoStep: React.FC<DefaultStepProps> = ({
         />
 
         {/* FIXME: コンポーネントとして切り出す */}
+        {/* FIXME: 年・月・日、全てが選択されていない場合、エラーを表示したい */}
         <FormControl>
           <FormLabel>生年月日</FormLabel>
           <HStack spacing='4px'>
