@@ -1,2 +1,2 @@
 export * from './atomKeys'
-export * from './PersonalInfo'
+export * from './BasicInfo'

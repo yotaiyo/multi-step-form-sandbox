@@ -1,9 +1,9 @@
 import { useForm } from 'react-hook-form'
-import { usePersonalInfoRecoilStates } from '../../../../../recoil'
+import { useBasicInfoRecoilStates } from '../../../../../recoil'
 
 
 export const useBasicInfo = () => {
-  const { basicInfo, setBasicInfo } = usePersonalInfoRecoilStates()
+  const { basicInfo, setBasicInfo } = useBasicInfoRecoilStates()
 
   const methods = useForm({
     mode: 'onBlur',

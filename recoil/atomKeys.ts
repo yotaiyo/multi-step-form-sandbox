@@ -1,4 +1,4 @@
 export const AtomKeys = {
-  // PersonalInfo
+  // BasicInfo
   Personal_Info_BasicInfo: 'Personal_Info_BasicInfo'
 }

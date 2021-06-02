@@ -1,7 +1,7 @@
 import { useRecoilState } from 'recoil'
 import { basicInfoState } from './atoms'
 
-export const usePersonalInfoRecoilStates = () => {
+export const useBasicInfoRecoilStates = () => {
   const [basicInfo, setBasicInfo] = useRecoilState(basicInfoState)
 
   return {
