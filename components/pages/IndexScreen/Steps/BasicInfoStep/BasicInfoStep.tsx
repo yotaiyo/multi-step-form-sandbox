@@ -1,5 +1,5 @@
 import { VStack, Box, HStack, FormControl, FormLabel } from '@chakra-ui/react'
-import { LabelAndTextInput, Select, StepView } from '../../../../ui'
+import { LabelAndTextInput, Select, LabelAndSelectInput,StepView } from '../../../../ui'
 import { useBasicInfo } from './useBasicInfo'
 import { DefaultStepProps } from '../types'
 import { range } from '../../../../../utils'
@@ -58,7 +58,7 @@ export const BasicInfoStep: React.FC<DefaultStepProps> = ({
                 }
               </Select>
             </Box>
-            <Box width='100px'>
+            <Box width='120px'>
               <Select {...methods.register('birthDayDay')}>
                 {
                   range(1, 31).map((day) => (
@@ -69,6 +69,13 @@ export const BasicInfoStep: React.FC<DefaultStepProps> = ({
             </Box>
           </HStack>
         </FormControl>
+
+        <LabelAndSelectInput label='性別' width='100px' {...methods.register('gender')}>
+          <option label='男性' value='man' />
+          <option label='女性' value='woman' />
+          <option label='その他' value='other' />
+          <option label='未回答' value='unanswered' />
+        </LabelAndSelectInput>
 
         {/* <LabelAndSelectInput label='性別' id='gender' {...methods.register('gender')} /> */}
         <LabelAndTextInput label='国' id='country' {...methods.register('country')} />
