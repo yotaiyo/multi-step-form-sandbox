@@ -77,7 +77,6 @@ export const BasicInfoStep: React.FC<DefaultStepProps> = ({
           <option label='未回答' value='unanswered' />
         </LabelAndSelectInput>
 
-        {/* <LabelAndSelectInput label='性別' id='gender' {...methods.register('gender')} /> */}
         <LabelAndTextInput label='国' id='country' {...methods.register('country')} />
         <LabelAndTextInput label='出身地' id='birthPlace' {...methods.register('birthPlace')} />
         <LabelAndTextInput label='言語' id='language' {...methods.register('language')} />
