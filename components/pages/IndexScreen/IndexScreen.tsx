@@ -13,7 +13,7 @@ type StepConfig = {
 
 const stepConfigs: StepConfig[] = [
   {
-    title: '個人情報入力',
+    title: '基本情報入力',
     render: (props) => {
       return (
         <BasicInfoStep {...props} />
