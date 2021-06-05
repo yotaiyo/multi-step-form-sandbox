@@ -7,7 +7,7 @@ export type StepViewProps = useStepViewProps
 
 export const StepView: React.FC<StepViewProps> = ({ configs, children }) => {
   const {
-    currentIndex,
+    stepInfo: { currentIndex },
     numOfStep,
     title,
     previousTitle,
