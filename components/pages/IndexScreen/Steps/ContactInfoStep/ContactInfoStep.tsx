@@ -33,7 +33,7 @@ export const ContactInfoStep: React.FC<DefaultStepProps> = ({
       setStepErrors={setStepErrors}
     >
       <VStack spacing="24px">
-        <LabelAndTextInput label="携帯番号" errorMessage={errors.mobileNumber?.message} required {...register('mobileNumber')} />
+        <LabelAndTextInput label="携帯番号" errorMessage={errors.mobilePhone?.message} required {...register('mobilePhone')} />
         <LabelAndTextInput label="郵便番号" errorMessage={errors.postalCode?.message} required {...register('postalCode')} />
         <LabelAndTextInput label="都道府県" errorMessage={errors.prefecture?.message} required {...register('prefecture')} />
         <LabelAndTextInput label="市区町村" errorMessage={errors.city?.message} required {...register('city')} />

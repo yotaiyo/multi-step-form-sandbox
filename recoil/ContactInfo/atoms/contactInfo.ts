@@ -2,7 +2,7 @@ import { atom } from 'recoil'
 import { AtomKeys } from '../../atomKeys'
 
 export type ContactInfo = {
-  mobileNumber: string | null
+  mobilePhone: string | null
   postalCode: string | null
   prefecture: string | null
   city: string | null
@@ -15,7 +15,7 @@ export type ContactInfo = {
 }
 
 export const defaultContactInfoState: ContactInfo = {
-  mobileNumber: null,
+  mobilePhone: null,
   postalCode: null,
   prefecture: null,
   city: null,
