@@ -54,7 +54,7 @@ export const BasicInfoStep: React.FC<DefaultStepProps> = ({
         <FormControl>
           <FormLabel>生年月日</FormLabel>
           <HStack spacing='4px'>
-            <Box width='100px'>
+            <Box width='120px'>
               <Select {...register('birthDayYear')}>
                 {
                   range(startBirthDayYear, currentYear - startBirthDayYear + 1).map((year) => (
@@ -63,7 +63,7 @@ export const BasicInfoStep: React.FC<DefaultStepProps> = ({
                 }
               </Select>
             </Box>
-            <Box width='100px'>
+            <Box width='120px'>
               <Select {...register('birthDayMonth')}>
                 {
                   range(1, 12).map((month) => (
@@ -72,7 +72,7 @@ export const BasicInfoStep: React.FC<DefaultStepProps> = ({
                 }
               </Select>
             </Box>
-            <Box width='100px'>
+            <Box width='120px'>
               <Select {...register('birthDayDay')}>
                 {
                   range(1, 31).map((day) => (
@@ -84,7 +84,7 @@ export const BasicInfoStep: React.FC<DefaultStepProps> = ({
           </HStack>
         </FormControl>
 
-        <LabelAndSelectInput label='性別' width='100px' {...register('gender')}>
+        <LabelAndSelectInput label='性別' width='120px' {...register('gender')}>
           <option label='男性' value='man' />
           <option label='女性' value='woman' />
           <option label='その他' value='other' />

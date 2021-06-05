@@ -3,7 +3,7 @@ import { RecoilRoot } from 'recoil'
 import { Center, Box } from '@chakra-ui/react'
 import { DefaultStepProps } from './Steps/types'
 import { BasicInfoStep,  } from './Steps/BasicInfoStep'
-import { BackgroundStep } from './Steps/BackgroundStep'
+import { CarrerStep } from './Steps/CarrerStep'
 import { AddressStep } from './Steps/AddressStep'
 import { QuestionStep } from './Steps/QuestionStep'
 
@@ -22,10 +22,10 @@ const stepConfigs: StepConfig[] = [
     }
   },
   {
-    title: '経歴',
+    title: '職業を教えてください',
     render: (props) => {
       return (
-        <BackgroundStep {...props} />
+        <CarrerStep {...props} />
       )
     }
   },
