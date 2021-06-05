@@ -30,10 +30,28 @@ export const CarrerStep: React.FC<DefaultStepProps> = ({
       }}
     >
       <VStack spacing="24px">
-        <LabelAndTextInput label='会社名' {...register('companyName')} />
+        <LabelAndTextInput
+          label='会社名'
+          errorMessage={errors.companyName?.message}
+          required
+          {...register('companyName')}
+        />
+
+        <LabelAndTextInput
+          label='役職'
+          errorMessage={errors.position?.message}
+          required
+          {...register('position')}
+        />
+
+        <LabelAndTextInput
+          label='雇用形態'
+          errorMessage={errors.employmentStatus?.message}
+          required
+          {...register('employmentStatus')}
+        />
+
         <LabelAndTextInput label='場所' {...register('place')} />
-        <LabelAndTextInput label='役職' {...register('position')} />
-        <LabelAndTextInput label='雇用形態' {...register('employmentStatus')} />
 
         <LabelAndDateInput label='開始日'>
           <LabelAndDateInput.SelectYear {...register('startDateYear')} />

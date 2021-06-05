@@ -32,16 +32,14 @@ export const BasicInfoStep: React.FC<DefaultStepProps> = ({
       <VStack spacing="24px">
         <LabelAndTextInput
           label='お名前'
-          id='name'
           errorMessage={errors.name?.message}
-          required={true}
+          required
           {...register('name')}
         />
         <LabelAndTextInput
           label='フリガナ'
-          id='nameKana'
           errorMessage={errors.nameKana?.message}
-          required={true}
+          required
           {...register('nameKana')}
         />
 
@@ -58,11 +56,11 @@ export const BasicInfoStep: React.FC<DefaultStepProps> = ({
           <option label='未回答' value='unanswered' />
         </LabelAndSelectInput>
 
-        <LabelAndTextInput label='国' id='country' {...register('country')} />
-        <LabelAndTextInput label='出身地' id='birthPlace' {...register('birthPlace')} />
-        <LabelAndTextInput label='言語' id='language' {...register('language')} />
-        <LabelAndTextInput label='所属企業' id='company' {...register('company')} />
-        <LabelAndTextInput label='職業' id='job' {...register('job')} />
+        <LabelAndTextInput label='国' {...register('country')} />
+        <LabelAndTextInput label='出身地' {...register('birthPlace')} />
+        <LabelAndTextInput label='言語' {...register('language')} />
+        <LabelAndTextInput label='所属企業' {...register('company')} />
+        <LabelAndTextInput label='職業' {...register('job')} />
       </VStack>
     </StepView>
   )
