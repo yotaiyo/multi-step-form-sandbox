@@ -23,7 +23,10 @@ export const ContactInfoStep: React.FC<DefaultStepProps> = ({
       numOfStep={numOfStep}
       previousTitle={previousTitle}
       nextTitle={nextTitle}
-      onClickPrevious={onClickPrevious}
+      onClickPrevious={() => {
+        onClickPrevious && onClickPrevious()
+        setValues()
+      }}
       onClickNext={() => {
         onClickNext && onClickNext()
         setValues()

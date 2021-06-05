@@ -2,27 +2,19 @@ import { atom } from 'recoil'
 import { AtomKeys } from '../../atomKeys'
 
 export type SelfIntroduction = {
-  mobileNumber: string | null
-  postalCode: string | null
-  prefecture: string | null
-  city: string | null
-  block: string | null
-  building: string | null
-  nearestStation: string | null
-  website: string | null
-  // FIXME
-  // socialLink: string[] | null
+  sports: string | null
+  book: string | null
+  tv: string | null
+  movie: string | null
+  webService: string | null
 }
 
 export const defaultSelfIntroductionState: SelfIntroduction = {
-  mobileNumber: null,
-  postalCode: null,
-  prefecture: null,
-  city: null,
-  block: null,
-  building: null,
-  nearestStation: null,
-  website: null
+  sports: null,
+  book: null,
+  tv: null,
+  movie: null,
+  webService: null
 }
 
 export const selfIntroductionState = atom<SelfIntroduction>({
