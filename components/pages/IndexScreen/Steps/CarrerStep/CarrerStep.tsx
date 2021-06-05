@@ -4,15 +4,12 @@ import { useCarrer } from './useCarrer'
 import { DefaultStepProps } from '../types'
 
 export const CarrerStep: React.FC<DefaultStepProps> = ({
-  title,
-  currentStep,
-  numOfStep,
-  previousTitle,
-  nextTitle,
+  stepIndex,
+  stepTitles,
   onClickPrevious,
   onClickNext,
   stepErrors,
-  setStepErrors,
+  setStepErrors
 }) => {
   const { methods, setValues } = useCarrer()
   const { register, formState: { errors } } = methods
@@ -20,11 +17,8 @@ export const CarrerStep: React.FC<DefaultStepProps> = ({
   console.count('CarrerStepがレンダリングされた回数')
   return (
     <StepView
-      title={title}
-      currentStep={currentStep}
-      numOfStep={numOfStep}
-      previousTitle={previousTitle}
-      nextTitle={nextTitle}
+      stepIndex={stepIndex}
+      stepTitles={stepTitles}
       onClickPrevious={() => {
         onClickPrevious && onClickPrevious()
         setValues()

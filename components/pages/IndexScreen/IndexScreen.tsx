@@ -67,15 +67,12 @@ export const IndexScreen = () => {
       <Center>
         <Box backgroundColor='white' width='1024px' padding='24px' borderRadius='12px' >
           {stepConfigs[stepIndex].render({
-            title: stepConfigs[stepIndex].title,
-            onClickPrevious: backward,
-            onClickNext: forward,
-            previousTitle: stepIndex !== 0 ? stepConfigs[stepIndex - 1].title : undefined,
-            nextTitle: stepIndex !== stepConfigs.length - 1 ? stepConfigs[stepIndex + 1].title : undefined,
-            currentStep: stepIndex + 1,
-            numOfStep: stepConfigs.length,
+            stepIndex,
+            stepTitles: stepConfigs.map(config => config.title),
             stepErrors,
-            setStepErrors
+            setStepErrors,
+            onClickPrevious: backward,
+            onClickNext: forward
           })}
         </Box>
       </Center>

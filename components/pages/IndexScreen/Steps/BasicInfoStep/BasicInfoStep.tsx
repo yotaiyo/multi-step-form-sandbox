@@ -4,11 +4,8 @@ import { useBasicInfo } from './useBasicInfo'
 import { DefaultStepProps } from '../types'
 
 export const BasicInfoStep: React.FC<DefaultStepProps> = ({
-  title,
-  currentStep,
-  numOfStep,
-  previousTitle,
-  nextTitle,
+  stepIndex,
+  stepTitles,
   onClickPrevious,
   onClickNext,
   stepErrors,
@@ -20,11 +17,8 @@ export const BasicInfoStep: React.FC<DefaultStepProps> = ({
   console.count('BasicInfoStepがレンダリングされた回数')
   return (
     <StepView
-      title={title}
-      currentStep={currentStep}
-      numOfStep={numOfStep}
-      previousTitle={previousTitle}
-      nextTitle={nextTitle}
+      stepIndex={stepIndex}
+      stepTitles={stepTitles}
       onClickPrevious={() => {
         onClickPrevious && onClickPrevious()
         setValues()

@@ -4,15 +4,12 @@ import { DefaultStepProps } from '../types'
 import { useContactInfo } from './useContactInfo'
 
 export const ContactInfoStep: React.FC<DefaultStepProps> = ({
-  title,
-  currentStep,
-  numOfStep,
-  previousTitle,
-  nextTitle,
+  stepIndex,
+  stepTitles,
   onClickPrevious,
   onClickNext,
   stepErrors,
-  setStepErrors,
+  setStepErrors
 }) => {
   const { methods, setValues } = useContactInfo()
   const { register, formState: { errors }} = methods
@@ -20,11 +17,8 @@ export const ContactInfoStep: React.FC<DefaultStepProps> = ({
   console.count('ContactInfoStepがレンダリングされた回数')
   return (
     <StepView
-      title={title}
-      currentStep={currentStep}
-      numOfStep={numOfStep}
-      previousTitle={previousTitle}
-      nextTitle={nextTitle}
+      stepIndex={stepIndex}
+      stepTitles={stepTitles}
       onClickPrevious={() => {
         onClickPrevious && onClickPrevious()
         setValues()

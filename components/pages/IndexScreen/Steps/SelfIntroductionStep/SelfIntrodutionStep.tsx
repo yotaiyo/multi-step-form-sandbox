@@ -4,26 +4,20 @@ import { DefaultStepProps } from '../types'
 import { useSelfIntroduction } from './useSelfIntroduction'
 
 export const SelfIntroductionStep: React.FC<DefaultStepProps> = ({
-  title,
-  currentStep,
-  numOfStep,
-  previousTitle,
-  nextTitle,
+  stepIndex,
+  stepTitles,
   onClickPrevious,
   onClickNext,
   stepErrors,
-  setStepErrors,
+  setStepErrors
 }) => {
   const { methods, setValues } = useSelfIntroduction()
   const { register } = methods
 
   return (
     <StepView
-      title={title}
-      currentStep={currentStep}
-      numOfStep={numOfStep}
-      previousTitle={previousTitle}
-      nextTitle={nextTitle}
+      stepIndex={stepIndex}
+      stepTitles={stepTitles}
       onClickPrevious={() => {
         onClickPrevious && onClickPrevious()
         setValues()
