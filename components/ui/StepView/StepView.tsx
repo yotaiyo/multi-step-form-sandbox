@@ -5,12 +5,11 @@ import { useStepView, useStepViewProps } from './useStepView'
 
 export type StepViewProps = useStepViewProps
 
-export const StepView: React.FC<StepViewProps> = ({ configs }) => {
+export const StepView: React.FC<StepViewProps> = ({ configs, children }) => {
   const {
-    stepIndex,
+    currentIndex,
     numOfStep,
     title,
-    children,
     previousTitle,
     nextTitle,
     backward,
@@ -22,7 +21,7 @@ export const StepView: React.FC<StepViewProps> = ({ configs }) => {
       <VStack spacing='48px' align='unset' width='50%'>
         <VStack align='unset'>
           <HStack>
-            <Heading variant='screenTitle'>{stepIndex + 1}</Heading>
+            <Heading variant='screenTitle'>{currentIndex + 1}</Heading>
             <Flex height='40px'>
               <Text color='gray.500' alignSelf='flex-end'>{`/ ${numOfStep}`}</Text>
             </Flex>
