@@ -10,7 +10,9 @@ export const SelfIntroductionStep: React.FC<DefaultStepProps> = ({
   previousTitle,
   nextTitle,
   onClickPrevious,
-  onClickNext
+  onClickNext,
+  stepErrors,
+  setStepErrors,
 }) => {
   const { methods, setValues } = useSelfIntroduction()
   const { register } = methods
@@ -30,6 +32,8 @@ export const SelfIntroductionStep: React.FC<DefaultStepProps> = ({
         onClickNext && onClickNext()
         setValues()
       }}
+      stepErrors={stepErrors}
+      setStepErrors={setStepErrors}
     >
       <VStack spacing="24px">
         <LabelAndTextareaInput label='好きなスポーツについて教えてください' {...register('sports')} />

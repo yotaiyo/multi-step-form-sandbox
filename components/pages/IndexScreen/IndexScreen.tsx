@@ -50,6 +50,9 @@ const stepConfigs: StepConfig[] = [
 
 export const IndexScreen = () => {
   const [stepIndex, setStepIndex] = useState(0)
+  const [stepErrors, setStepErrors] = useState(
+    Array.from({ length: stepConfigs.length }, () => false)
+  )
 
   const backward = () => {
     setStepIndex(stepIndex - 1)
@@ -70,7 +73,9 @@ export const IndexScreen = () => {
             previousTitle: stepIndex !== 0 ? stepConfigs[stepIndex - 1].title : undefined,
             nextTitle: stepIndex !== stepConfigs.length - 1 ? stepConfigs[stepIndex + 1].title : undefined,
             currentStep: stepIndex + 1,
-            numOfStep: stepConfigs.length
+            numOfStep: stepConfigs.length,
+            stepErrors,
+            setStepErrors
           })}
         </Box>
       </Center>

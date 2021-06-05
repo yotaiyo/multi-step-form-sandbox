@@ -7,6 +7,8 @@ export type StepViewProps = PaginationProps & {
   title: string
   currentStep: number
   numOfStep: number
+  stepErrors: boolean[]
+  setStepErrors: React.Dispatch<React.SetStateAction<boolean[]>>
 }
 
 export const StepView: React.FC<StepViewProps> = ({
@@ -17,7 +19,9 @@ export const StepView: React.FC<StepViewProps> = ({
   previousTitle,
   nextTitle,
   onClickPrevious,
-  onClickNext
+  onClickNext,
+  stepErrors,
+  setStepErrors
 }) => {
   return (
     <VStack align='unset'>
