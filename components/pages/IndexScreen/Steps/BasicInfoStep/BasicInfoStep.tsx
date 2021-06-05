@@ -1,8 +1,7 @@
-import { VStack, Box, HStack, FormControl, FormLabel } from '@chakra-ui/react'
-import { LabelAndTextInput, Select, LabelAndSelectInput,StepView } from '../../../../ui'
+import { VStack } from '@chakra-ui/react'
+import { LabelAndTextInput, LabelAndSelectInput, StepView, LabelAndDateInput } from '../../../../ui'
 import { useBasicInfo } from './useBasicInfo'
 import { DefaultStepProps } from '../types'
-import { range } from '../../../../../utils'
 
 export const BasicInfoStep: React.FC<DefaultStepProps> = ({
   title,
@@ -15,9 +14,6 @@ export const BasicInfoStep: React.FC<DefaultStepProps> = ({
 }) => {
   const { methods, setValues } = useBasicInfo()
   const { register, formState: { errors } } = methods
-
-  const startBirthDayYear = 1900
-  const currentYear = new Date().getFullYear()
 
   console.count('BasicInfoStepがレンダリングされた回数')
   return (
@@ -49,40 +45,11 @@ export const BasicInfoStep: React.FC<DefaultStepProps> = ({
           {...register('nameKana')}
         />
 
-        {/* FIXME: コンポーネントとして切り出す */}
-        {/* FIXME: 年・月・日、全てが選択されていない場合、エラーを表示したい */}
-        <FormControl>
-          <FormLabel>生年月日</FormLabel>
-          <HStack spacing='4px'>
-            <Box width='120px'>
-              <Select {...register('birthDayYear')}>
-                {
-                  range(startBirthDayYear, currentYear - startBirthDayYear + 1).map((year) => (
-                    <option key={year} label={`${year}年`} value={year} />
-                  ))
-                }
-              </Select>
-            </Box>
-            <Box width='120px'>
-              <Select {...register('birthDayMonth')}>
-                {
-                  range(1, 12).map((month) => (
-                    <option key={month} label={`${month}月`} value={month} />
-                  ))
-                }
-              </Select>
-            </Box>
-            <Box width='120px'>
-              <Select {...register('birthDayDay')}>
-                {
-                  range(1, 31).map((day) => (
-                    <option key={day} label={`${day}日`} value={day} />
-                  ))
-                }
-              </Select>
-            </Box>
-          </HStack>
-        </FormControl>
+        <LabelAndDateInput label='生年月日'>
+          <LabelAndDateInput.SelectYear {...register('birthDayYear')} />
+          <LabelAndDateInput.SelectMonth {...register('birthDayMonth')} />
+          <LabelAndDateInput.SelectDay {...register('birthDayDay')} />
+        </LabelAndDateInput>
 
         <LabelAndSelectInput label='性別' width='120px' {...register('gender')}>
           <option label='男性' value='man' />

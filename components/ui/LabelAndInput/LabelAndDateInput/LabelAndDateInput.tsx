@@ -1,19 +1,16 @@
 import React from 'react'
 import { HStack, Box, FormControl, FormLabel } from '@chakra-ui/react'
-import { Select } from '../../Select'
+import { Select, SelectProps } from '../../Select'
 import { range } from '../../../../utils'
 
-type SelectYearProps = {
-  id?: string
-  value?: string
+type SelectYearProps = Omit<SelectProps, 'width' | 'children'> & {
   startYear?: number
-  onChange?: React.ChangeEventHandler<HTMLSelectElement>
-  onBlur?: React.FocusEventHandler<HTMLSelectElement>
 }
 
 const SelectYear = React.forwardRef<HTMLSelectElement, SelectYearProps>(({
   id,
   value,
+  name,
   startYear = 1900,
   onBlur,
   onChange
@@ -22,10 +19,10 @@ const SelectYear = React.forwardRef<HTMLSelectElement, SelectYearProps>(({
 
   return (
     <Box width='120px'>
-      <Select ref={ref} id={id} value={value} onChange={onChange} onBlur={onBlur}>
+      <Select ref={ref} id={id} name={name} value={value} onChange={onChange} onBlur={onBlur}>
         {
           range(startYear, currentYear - startYear + 1).map((year) => (
-            <option label={`${year}年`} value={year} />
+            <option key={year} label={`${year}年`} value={year} />
           ))
         }
       </Select>
@@ -33,15 +30,11 @@ const SelectYear = React.forwardRef<HTMLSelectElement, SelectYearProps>(({
   )
 })
 
-type SelectMonthProps = {
-  id?: string
-  value?: string
-  onChange?: React.ChangeEventHandler<HTMLSelectElement>
-  onBlur?: React.FocusEventHandler<HTMLSelectElement>
-}
+type SelectMonthProps = Omit<SelectProps, 'width' | 'children'>
 
 const SelectMonth = React.forwardRef<HTMLSelectElement, SelectMonthProps>(({
   id,
+  name,
   value,
   onBlur,
   onChange
@@ -49,10 +42,10 @@ const SelectMonth = React.forwardRef<HTMLSelectElement, SelectMonthProps>(({
 
   return (
     <Box width='120px'>
-      <Select ref={ref} id={id} value={value} onChange={onChange} onBlur={onBlur}>
+      <Select ref={ref} id={id} name={name} value={value} onChange={onChange} onBlur={onBlur}>
         {
           range(1, 12).map((month) => (
-            <option label={`${month}月`} value={month} />
+            <option key={month} label={`${month}月`} value={month} />
           ))
         }
       </Select>
@@ -60,15 +53,11 @@ const SelectMonth = React.forwardRef<HTMLSelectElement, SelectMonthProps>(({
   )
 })
 
-type SelectDayProps = {
-  id?: string
-  value?: string
-  onChange?: React.ChangeEventHandler<HTMLSelectElement>
-  onBlur?: React.FocusEventHandler<HTMLSelectElement>
-}
+type SelectDayProps = Omit<SelectProps, 'width' | 'children'>
 
 const SelectDay = React.forwardRef<HTMLSelectElement, SelectDayProps>(({
   id,
+  name,
   value,
   onBlur,
   onChange
@@ -76,10 +65,10 @@ const SelectDay = React.forwardRef<HTMLSelectElement, SelectDayProps>(({
 
   return (
     <Box width='120px'>
-      <Select ref={ref} id={id} value={value} onChange={onChange} onBlur={onBlur}>
+      <Select ref={ref} id={id} name={name} value={value} onChange={onChange} onBlur={onBlur}>
         {
           range(1, 31).map((day) => (
-            <option label={`${day}日`} value={day} />
+            <option key={day} label={`${day}日`} value={day} />
           ))
         }
       </Select>
@@ -99,7 +88,9 @@ export const LabelAndDateInput: React.FC<LabelAndDateInputProps> & {
   return (
     <FormControl>
       <FormLabel>{label}</FormLabel>
-        <HStack spacing='4px'>{children}</HStack>
+      <HStack spacing='4px'>
+        {children}
+      </HStack>
     </FormControl>
   )
 }
