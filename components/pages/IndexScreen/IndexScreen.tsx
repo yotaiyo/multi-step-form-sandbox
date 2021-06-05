@@ -5,7 +5,7 @@ import { DefaultStepProps } from './Steps/types'
 import { BasicInfoStep,  } from './Steps/BasicInfoStep'
 import { CarrerStep } from './Steps/CarrerStep'
 import { ContactInfoStep } from './Steps/ContactInfoStep'
-import { QuestionStep } from './Steps/QuestionStep'
+import { SelfIntroductionStep } from './Steps/SelfIntroductionStep'
 
 type StepConfig = {
   title: string
@@ -38,10 +38,10 @@ const stepConfigs: StepConfig[] = [
     }
   },
   {
-    title: '質問',
+    title: '自己紹介',
     render: (props) => {
       return (
-        <QuestionStep {...props} />
+        <SelfIntroductionStep {...props} />
       )
     }
   }

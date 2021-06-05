@@ -2,7 +2,7 @@ import { VStack } from '@chakra-ui/react'
 import { LabelAndTextareaInput, StepView } from '../../../../ui'
 import { DefaultStepProps } from '../types'
 
-export const QuestionStep: React.FC<DefaultStepProps> = ({
+export const SelfIntroductionStep: React.FC<DefaultStepProps> = ({
   title,
   currentStep,
   numOfStep,
