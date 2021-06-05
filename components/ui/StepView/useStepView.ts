@@ -3,8 +3,6 @@ import React, { useState } from 'react'
 export type StepConfig = {
   title: string
   children: React.ReactNode
-  onClickPrevious: () => void
-  onClickNext: () => void
 }
 
 export type useStepViewProps = {
@@ -26,19 +24,13 @@ export const useStepView = ({ configs }: useStepViewProps) => {
   }
 
   return {
+    stepIndex,
     title: configs[stepIndex].title,
     children: configs[stepIndex].children,
-    currentStep: stepIndex + 1,
     previousTitle: !isFirstStep ? configs[stepIndex - 1].title : undefined,
     nextTitle: !isLastStep ? configs[stepIndex + 1].title : undefined,
     numOfStep: configs.length,
-    onClickPrevious: () => {
-      !isFirstStep && backward()
-      configs[stepIndex].onClickPrevious()
-    },
-    onClickNext: () => {
-      !isLastStep && forward()
-      configs[stepIndex].onClickNext()
-    }
+    backward: !isFirstStep ? backward : undefined,
+    forward: !isLastStep ? forward : undefined
   }
 }

@@ -1,30 +1,28 @@
 import { VStack, HStack, Text, Flex } from '@chakra-ui/react'
-
 import { Heading } from '../Heading'
-import { Pagination, PaginationProps } from '../Pagination'
+import { Pagination } from '../Pagination'
+import { useStepView, useStepViewProps } from './useStepView'
 
-export type StepViewProps = PaginationProps & {
-  title: string
-  currentStep: number
-  numOfStep: number
-}
+export type StepViewProps = useStepViewProps
 
-export const StepView: React.FC<StepViewProps> = ({
-  title,
-  currentStep,
-  numOfStep,
-  children,
-  previousTitle,
-  nextTitle,
-  onClickPrevious,
-  onClickNext
-}) => {
+export const StepView: React.FC<StepViewProps> = ({ configs }) => {
+  const {
+    stepIndex,
+    numOfStep,
+    title,
+    children,
+    previousTitle,
+    nextTitle,
+    backward,
+    forward
+  } = useStepView({ configs })
+
   return (
     <VStack align='unset'>
       <VStack spacing='48px' align='unset' width='50%'>
         <VStack align='unset'>
           <HStack>
-            <Heading variant='screenTitle'>{currentStep}</Heading>
+            <Heading variant='screenTitle'>{stepIndex + 1}</Heading>
             <Flex height='40px'>
               <Text color='gray.500' alignSelf='flex-end'>{`/ ${numOfStep}`}</Text>
             </Flex>
@@ -34,7 +32,7 @@ export const StepView: React.FC<StepViewProps> = ({
 
         {children}
 
-        <Pagination previousTitle={previousTitle} nextTitle={nextTitle} onClickPrevious={onClickPrevious} onClickNext={onClickNext} />
+        <Pagination previousTitle={previousTitle} nextTitle={nextTitle} onClickPrevious={backward} onClickNext={forward} />
       </VStack>
     </VStack>
   )
