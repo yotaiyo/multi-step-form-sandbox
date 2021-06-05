@@ -6,7 +6,13 @@ import { useSelfIntroductionRecoilStates } from '../../../../../recoil'
 
 const schema = yup.object().shape({})
 
-export const useSelfIntroduction = () => {
+type useSelfIntroductionType = {
+  stepIndex: number
+  stepErrors: boolean[]
+  setStepErrors: React.Dispatch<React.SetStateAction<boolean[]>>
+}
+
+export const useSelfIntroduction = ({ stepIndex, stepErrors, setStepErrors }: useSelfIntroductionType) => {
   const { selfIntroduction, setSelfIntroduction } = useSelfIntroductionRecoilStates()
 
   const methods = useForm({
@@ -21,7 +27,11 @@ export const useSelfIntroduction = () => {
   }
 
   React.useEffect(() => {
-    // FIXME
+    setStepErrors(stepErrors.map((error, index) => {
+      return (
+        index === stepIndex ? !methods.formState.isValid : error
+      )
+    }))
   }, [methods.formState.isValid])
 
   return {

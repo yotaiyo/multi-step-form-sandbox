@@ -12,7 +12,7 @@ export const BasicInfoStep: React.FC<DefaultStepProps> = ({
   stepErrors,
   setStepErrors
 }) => {
-  const { methods, setValues } = useBasicInfo()
+  const { methods, setValues } = useBasicInfo({ stepIndex, stepErrors, setStepErrors })
   const { register, formState: { errors } } = methods
 
   console.count('BasicInfoStepがレンダリングされた回数')

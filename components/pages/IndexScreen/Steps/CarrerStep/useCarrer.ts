@@ -10,8 +10,13 @@ const schema = yup.object().shape({
   employmentStatus: yup.string().required('雇用形態を入力してください')
 })
 
+type useCarrerType = {
+  stepIndex: number
+  stepErrors: boolean[]
+  setStepErrors: React.Dispatch<React.SetStateAction<boolean[]>>
+}
 
-export const useCarrer = () => {
+export const useCarrer = ({ stepIndex, stepErrors, setStepErrors }: useCarrerType) => {
   const { carrer, setCarrer } = useCarrerRecoilStates()
 
   const methods = useForm({
@@ -26,7 +31,11 @@ export const useCarrer = () => {
   }
 
   React.useEffect(() => {
-    // FIXME
+    setStepErrors(stepErrors.map((error, index) => {
+      return (
+        index === stepIndex ? !methods.formState.isValid : error
+      )
+    }))
   }, [methods.formState.isValid])
 
   return {

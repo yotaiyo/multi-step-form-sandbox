@@ -26,6 +26,8 @@ export const StepView: React.FC<StepViewProps> = ({
   const isFirstStep = stepIndex === 0
   const isLastStep = stepIndex === stepTitles.length - 1
 
+  console.log(stepErrors)
+
   return (
     <HStack align='unset' spacing='48px'>
       <VStack spacing='48px' align='unset' width='50%'>

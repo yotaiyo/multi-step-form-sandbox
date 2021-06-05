@@ -12,7 +12,7 @@ export const SelfIntroductionStep: React.FC<DefaultStepProps> = ({
   stepErrors,
   setStepErrors
 }) => {
-  const { methods, setValues } = useSelfIntroduction()
+  const { methods, setValues } = useSelfIntroduction({ stepIndex, stepErrors, setStepErrors })
   const { register } = methods
 
   return (

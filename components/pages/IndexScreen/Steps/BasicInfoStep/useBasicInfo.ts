@@ -9,8 +9,13 @@ const schema = yup.object().shape({
   nameKana: yup.string().required('ふりがなを入力してください')
 })
 
+type useBasicInfoType = {
+  stepIndex: number
+  stepErrors: boolean[]
+  setStepErrors: React.Dispatch<React.SetStateAction<boolean[]>>
+}
 
-export const useBasicInfo = () => {
+export const useBasicInfo = ({ stepIndex, stepErrors, setStepErrors }: useBasicInfoType) => {
   const { basicInfo, setBasicInfo } = useBasicInfoRecoilStates()
 
   const methods = useForm({
@@ -25,7 +30,11 @@ export const useBasicInfo = () => {
   }
 
   React.useEffect(() => {
-    // FIXME
+    setStepErrors(stepErrors.map((error, index) => {
+      return (
+        index === stepIndex ? !methods.formState.isValid : error
+      )
+    }))
   }, [methods.formState.isValid])
 
   return {

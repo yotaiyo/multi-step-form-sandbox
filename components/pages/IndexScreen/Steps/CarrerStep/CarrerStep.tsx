@@ -12,7 +12,7 @@ export const CarrerStep: React.FC<DefaultStepProps> = ({
   stepErrors,
   setStepErrors
 }) => {
-  const { methods, setValues } = useCarrer()
+  const { methods, setValues } = useCarrer({ stepIndex, stepErrors, setStepErrors })
   const { register, formState: { errors } } = methods
 
   console.count('CarrerStepがレンダリングされた回数')
