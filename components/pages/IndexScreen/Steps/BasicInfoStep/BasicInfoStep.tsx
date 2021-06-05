@@ -28,9 +28,6 @@ export const BasicInfoStep: React.FC<DefaultStepProps> = ({
         if (isValid) {
           onClickNext && onClickNext()
           setValues()
-        } else {
-          methods.setError('name', { message: 'お名前を入力してください' })
-          methods.setError('nameKana', { message: 'ふりがなを入力してください' })
         }
       }}
     >
