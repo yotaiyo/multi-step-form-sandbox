@@ -13,7 +13,7 @@ export const BasicInfoStep: React.FC<DefaultStepProps> = ({
   onClickNext
 }) => {
   const { methods, setValues } = useBasicInfo()
-  const { register, formState: { errors, isValid } } = methods
+  const { register, formState: { errors } } = methods
 
   console.count('BasicInfoStepがレンダリングされた回数')
   return (
@@ -25,10 +25,8 @@ export const BasicInfoStep: React.FC<DefaultStepProps> = ({
       nextTitle={nextTitle}
       onClickPrevious={onClickPrevious}
       onClickNext={() => {
-        if (isValid) {
-          onClickNext && onClickNext()
-          setValues()
-        }
+        onClickNext && onClickNext()
+        setValues()
       }}
     >
       <VStack spacing="24px">
