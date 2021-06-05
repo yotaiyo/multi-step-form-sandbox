@@ -13,7 +13,7 @@ export const BasicInfoStep: React.FC<DefaultStepProps> = ({
   onClickNext
 }) => {
   const { methods, setValues } = useBasicInfo()
-  const { register, formState: { errors } } = methods
+  const { register, formState: { errors, isValid } } = methods
 
   console.count('BasicInfoStepがレンダリングされた回数')
   return (
@@ -25,8 +25,13 @@ export const BasicInfoStep: React.FC<DefaultStepProps> = ({
       nextTitle={nextTitle}
       onClickPrevious={onClickPrevious}
       onClickNext={() => {
-        onClickNext && onClickNext()
-        setValues()
+        if (isValid) {
+          onClickNext && onClickNext()
+          setValues()
+        } else {
+          methods.setError('name', { message: 'お名前を入力してください' })
+          methods.setError('nameKana', { message: 'ふりがなを入力してください' })
+        }
       }}
     >
       <VStack spacing="24px">

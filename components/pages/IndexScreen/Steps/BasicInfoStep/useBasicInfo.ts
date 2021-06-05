@@ -20,20 +20,12 @@ export const useBasicInfo = () => {
   })
 
   const setValues = () => {
-    // FIXME
-    if (!methods.formState.isValid) {
-      console.log('エラーがあります')
-    }
-
     const values = methods.getValues()
     setBasicInfo(values)
   }
 
   React.useEffect(() => {
     // FIXME
-    if (!methods.formState.isValid) {
-      console.log('エラーがあります')
-    }
   }, [methods.formState.isValid])
 
   return {
