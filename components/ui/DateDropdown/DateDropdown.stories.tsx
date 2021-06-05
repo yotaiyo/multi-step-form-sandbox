@@ -1,20 +1,21 @@
 import React from 'react';
 import { Story, Meta } from '@storybook/react';
 
-import { DateDropdown, DateDropdownProps  } from './DateDropdown';
+import { DateDropdown } from './DateDropdown';
 
 export default {
   title: 'Example/DateDropdown',
-  component: DateDropdown,
 } as Meta;
 
-const Template: Story<DateDropdownProps> = (args) => {
+const Template: Story = () => {
   return (
-    <DateDropdown {...args} />
+    <DateDropdown.Wrapper>
+      <DateDropdown.SelectYear />
+      <DateDropdown.SelectMonth />
+      <DateDropdown.SelectDay />
+    </DateDropdown.Wrapper>
   )
 }
 
 export const Default = Template.bind({});
-Default.args = {
-  startYear: 1900
-};
+Default.args = {};
