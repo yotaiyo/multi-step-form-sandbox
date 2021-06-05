@@ -5,8 +5,8 @@ import * as yup from 'yup'
 import { useBasicInfoRecoilStates } from '../../../../../recoil'
 
 const schema = yup.object().shape({
-  name: yup.string().required('お名前は必須項目です'),
-  nameKana: yup.string().required('ふりがなは必須項目です')
+  name: yup.string().required('お名前を入力してください'),
+  nameKana: yup.string().required('ふりがなを入力してください')
 })
 
 

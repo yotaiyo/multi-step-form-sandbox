@@ -5,9 +5,9 @@ import * as yup from 'yup'
 import { useCarrerRecoilStates } from '../../../../../recoil'
 
 const schema = yup.object().shape({
-  companyName: yup.string().required('会社名は必須項目です'),
-  position: yup.string().required('役職は必須項目です'),
-  employmentStatus: yup.string().required('雇用形態は必須項目です')
+  companyName: yup.string().required('会社名を入力してください'),
+  position: yup.string().required('役職を入力してください'),
+  employmentStatus: yup.string().required('雇用形態を入力してください')
 })
 
 
