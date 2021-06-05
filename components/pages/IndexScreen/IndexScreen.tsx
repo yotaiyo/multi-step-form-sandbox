@@ -51,7 +51,7 @@ const stepConfigs: StepConfig[] = [
 export const IndexScreen = () => {
   const [stepIndex, setStepIndex] = useState(0)
   const [stepErrors, setStepErrors] = useState(
-    Array.from({ length: stepConfigs.length }, () => false)
+    Array.from({ length: stepConfigs.length }, () => true)
   )
 
   const backward = () => {

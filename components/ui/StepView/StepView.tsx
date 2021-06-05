@@ -1,5 +1,5 @@
 import { VStack, HStack, Text, Flex, Menu, MenuList, MenuItem } from '@chakra-ui/react'
-
+import { WarningTwoIcon, CheckIcon } from '@chakra-ui/icons'
 import { Heading } from '../Heading'
 import { Pagination } from '../Pagination'
 
@@ -55,6 +55,7 @@ export const StepView: React.FC<StepViewProps> = ({
               return (
                 <MenuItem
                   key={index}
+                  icon={stepErrors[index] ? <WarningTwoIcon color='red.600' /> : <CheckIcon />}
                   onClick={() => {
                     setStepIndex(index)
                   }}
