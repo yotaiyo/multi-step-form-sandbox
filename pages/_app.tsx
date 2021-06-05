@@ -1,4 +1,5 @@
 import { AppProps } from 'next/app'
+import { RecoilRoot } from 'recoil'
 import { ChakraProvider, extendTheme } from '@chakra-ui/react'
 
 const theme = extendTheme({
@@ -14,9 +15,11 @@ const theme = extendTheme({
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
-    <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <RecoilRoot>
+      <ChakraProvider theme={theme}>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </RecoilRoot>
   )
 }
 

@@ -1,79 +1,65 @@
-import React, { useState } from 'react'
-import { RecoilRoot } from 'recoil'
+import React from 'react'
 import { Center, Box } from '@chakra-ui/react'
-import { DefaultStepProps } from './Steps/types'
-import { BasicInfoStep,  } from './Steps/BasicInfoStep'
-import { CarrerStep } from './Steps/CarrerStep'
-import { ContactInfoStep } from './Steps/ContactInfoStep'
-import { SelfIntroductionStep } from './Steps/SelfIntroductionStep'
-
-type StepConfig = {
-  title: string
-  render: (props: DefaultStepProps) => React.ReactNode
-}
-
-const stepConfigs: StepConfig[] = [
-  {
-    title: '基本情報',
-    render: (props) => {
-      return (
-        <BasicInfoStep {...props} />
-      )
-    }
-  },
-  {
-    title: '職業',
-    render: (props) => {
-      return (
-        <CarrerStep {...props} />
-      )
-    }
-  },
-  {
-    title: '連絡先',
-    render: (props) => {
-      return (
-        <ContactInfoStep {...props} />
-      )
-    }
-  },
-  {
-    title: '自己紹介',
-    render: (props) => {
-      return (
-        <SelfIntroductionStep {...props} />
-      )
-    }
-  }
-]
-
+import { StepView, useStepView, StepConfig } from '../../ui'
+import { BasicInfoStep, useBasicInfo } from './Steps/BasicInfoStep'
+import { CarrerStep, useCarrer } from './Steps/CarrerStep'
+import { ContactInfoStep, useContactInfo } from './Steps/ContactInfoStep'
+import { SelfIntroductionStep, useSelfIntroduction } from './Steps/SelfIntroductionStep'
 
 export const IndexScreen = () => {
-  const [stepIndex, setStepIndex] = useState(0)
+  const stepConfigs: StepConfig[] = [
+    {
+      title: '基本情報',
+      children: <BasicInfoStep />,
+      onClickPrevious: useBasicInfo().setValues,
+      onClickNext: useBasicInfo().setValues
+    },
+    {
+      title: '職業',
+      children: <CarrerStep />,
+      onClickPrevious: useCarrer().setValues,
+      onClickNext: useCarrer().setValues
+    },
+    {
+      title: '連絡先',
+      children: <ContactInfoStep />,
+      onClickPrevious: useContactInfo().setValues,
+      onClickNext: useContactInfo().setValues
+    },
+    {
+      title: '自己紹介',
+      children: <SelfIntroductionStep />,
+      onClickPrevious: useSelfIntroduction().setValues,
+      onClickNext: useSelfIntroduction().setValues
+    }
+  ]
 
-  const backward = () => {
-    setStepIndex(stepIndex - 1)
-  }
-
-  const forward = () => {
-    setStepIndex(stepIndex + 1)
-  }
+  const {
+    title,
+    currentStep,
+    numOfStep,
+    children,
+    previousTitle,
+    nextTitle,
+    onClickPrevious,
+    onClickNext
+  } = useStepView({ configs: stepConfigs })
 
   return (
-    <RecoilRoot>
-      <Center>
-        <Box backgroundColor='white' width='1024px' padding='24px' borderRadius='12px' >
-          {stepConfigs[stepIndex].render({
-            title: stepConfigs[stepIndex].title,
-            onClickPrevious: backward,
-            onClickNext: forward,
-            previousTitle: stepIndex !== 0 ? stepConfigs[stepIndex - 1].title : undefined,
-            nextTitle: stepIndex !== stepConfigs.length - 1 ? stepConfigs[stepIndex + 1].title : undefined,
-            currentStep: stepIndex + 1,
-            numOfStep: stepConfigs.length
-          })}
-        </Box>
-      </Center>
-    </RecoilRoot>
+    <Center>
+      <Box backgroundColor='white' width='1024px' padding='24px' borderRadius='12px' >
+        <StepView
+          title={title}
+          currentStep={currentStep}
+          numOfStep={numOfStep}
+          previousTitle={previousTitle}
+          nextTitle={nextTitle}
+          onClickPrevious={onClickPrevious}
+          onClickNext={onClickNext}
+        >
+          {children}
+        </StepView>
+      </Box>
+    </Center>
   )
 }
