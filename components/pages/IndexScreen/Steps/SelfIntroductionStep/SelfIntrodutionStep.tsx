@@ -5,11 +5,15 @@ import { useSelfIntroduction } from './useSelfIntroduction'
 type SelfIntroductionStepProps = Omit<StepViewProps, 'children'>
 
 export const SelfIntroductionStep: React.FC<SelfIntroductionStepProps> = ({ configs }) => {
-  const { methods } = useSelfIntroduction()
+  const { methods, setValues } = useSelfIntroduction()
   const { register } = methods
 
   return (
-    <StepView configs={configs}>
+    <StepView
+      configs={configs}
+      onClickPrevious={setValues}
+      onClickNext={setValues}
+    >
       <VStack spacing="24px">
         <LabelAndTextareaInput label='好きなスポーツについて教えてください' {...register('sports')} />
         <LabelAndTextareaInput label='最近読んだ本について教えてください' {...register('book')} />

@@ -5,12 +5,16 @@ import { useBasicInfo } from './useBasicInfo'
 type BasicInfoStepProps = Omit<StepViewProps, 'children'>
 
 export const BasicInfoStep: React.FC<BasicInfoStepProps> = ({ configs }) => {
-  const { methods } = useBasicInfo()
+  const { methods, setValues } = useBasicInfo()
   const { register, formState: { errors } } = methods
 
   console.count('BasicInfoStepがレンダリングされた回数')
   return (
-    <StepView configs={configs}>
+    <StepView
+      configs={configs}
+      onClickPrevious={setValues}
+      onClickNext={setValues}
+    >
       <VStack spacing="24px">
         <LabelAndTextInput
           label='お名前'

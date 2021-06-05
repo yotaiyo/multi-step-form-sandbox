@@ -3,9 +3,17 @@ import { Heading } from '../Heading'
 import { Pagination } from '../Pagination'
 import { useStepView, useStepViewProps } from './useStepView'
 
-export type StepViewProps = useStepViewProps
+export type StepViewProps = useStepViewProps & {
+  onClickPrevious?: () => void
+  onClickNext?: () => void
+}
 
-export const StepView: React.FC<StepViewProps> = ({ configs, children }) => {
+export const StepView: React.FC<StepViewProps> = ({
+  configs,
+  onClickPrevious,
+  onClickNext,
+  children
+}) => {
   const {
     stepInfo: { currentIndex },
     numOfStep,
@@ -31,7 +39,18 @@ export const StepView: React.FC<StepViewProps> = ({ configs, children }) => {
 
         {children}
 
-        <Pagination previousTitle={previousTitle} nextTitle={nextTitle} onClickPrevious={backward} onClickNext={forward} />
+        <Pagination
+          previousTitle={previousTitle}
+          nextTitle={nextTitle}
+          onClickPrevious={() => {
+            backward && backward()
+            onClickPrevious && onClickPrevious()
+          }}
+          onClickNext={() => {
+            forward && forward()
+            onClickNext && onClickNext()
+          }}
+        />
       </VStack>
     </VStack>
   )

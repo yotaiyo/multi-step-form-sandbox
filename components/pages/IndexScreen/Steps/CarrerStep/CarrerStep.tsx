@@ -5,12 +5,16 @@ import { useCarrer } from './useCarrer'
 type CarrerStepStepProps = Omit<StepViewProps, 'children'>
 
 export const CarrerStep: React.FC<CarrerStepStepProps> = ({ configs }) => {
-  const { methods } = useCarrer()
+  const { methods, setValues } = useCarrer()
   const { register, formState: { errors } } = methods
 
   console.count('CarrerStepがレンダリングされた回数')
   return (
-    <StepView configs={configs}>
+    <StepView
+      configs={configs}
+      onClickPrevious={setValues}
+      onClickNext={setValues}
+    >
       <VStack spacing="24px">
         <LabelAndTextInput
           label='会社名'

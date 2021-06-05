@@ -5,12 +5,16 @@ import { useContactInfo } from './useContactInfo'
 type ContactInfoStepProps = Omit<StepViewProps, 'children'>
 
 export const ContactInfoStep: React.FC<ContactInfoStepProps> = ({ configs }) => {
-  const { methods } = useContactInfo()
+  const { methods, setValues } = useContactInfo()
   const { register, formState: { errors }} = methods
 
   console.count('ContactInfoStepがレンダリングされた回数')
   return (
-    <StepView configs={configs}>
+    <StepView
+      configs={configs}
+      onClickPrevious={setValues}
+      onClickNext={setValues}
+    >
       <VStack spacing="24px">
         <LabelAndTextInput label="携帯番号" errorMessage={errors.mobileNumber?.message} required {...register('mobileNumber')} />
         <LabelAndTextInput label="郵便番号" errorMessage={errors.postalCode?.message} required {...register('postalCode')} />
