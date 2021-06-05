@@ -5,26 +5,30 @@ import { BasicInfoStep } from './Steps/BasicInfoStep'
 import { CarrerStep } from './Steps/CarrerStep'
 import { ContactInfoStep } from './Steps/ContactInfoStep'
 import { SelfIntroductionStep } from './Steps/SelfIntroductionStep'
+import { useStepInfoRecoilStates } from '../../../recoil'
+
+const stepConfigs: StepConfig[] = [
+  {
+    title: '基本情報',
+    children: <BasicInfoStep />
+  },
+  {
+    title: '職業',
+    children: <CarrerStep />
+  },
+  {
+    title: '連絡先',
+    children: <ContactInfoStep />
+  },
+  {
+    title: '自己紹介',
+    children: <SelfIntroductionStep />
+  }
+]
 
 export const IndexScreen = () => {
-  const stepConfigs: StepConfig[] = [
-    {
-      title: '基本情報',
-      children: <BasicInfoStep />
-    },
-    {
-      title: '職業',
-      children: <CarrerStep />
-    },
-    {
-      title: '連絡先',
-      children: <ContactInfoStep />
-    },
-    {
-      title: '自己紹介',
-      children: <SelfIntroductionStep />
-    }
-  ]
+  const { stepInfo } = useStepInfoRecoilStates()
+  console.log(stepInfo)
 
   return (
     <Center>

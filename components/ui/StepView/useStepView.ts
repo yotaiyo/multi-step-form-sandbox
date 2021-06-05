@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useStepInfoRecoilStates } from '../../../recoil'
 
 export type StepConfig = {
   title: string
@@ -11,6 +12,7 @@ export type useStepViewProps = {
 
 export const useStepView = ({ configs }: useStepViewProps) => {
   const [stepIndex, setStepIndex] = useState(0)
+  const { stepInfo, setStepInfo } = useStepInfoRecoilStates()
 
   const isFirstStep = stepIndex === 0
   const isLastStep = stepIndex === configs.length  - 1
@@ -22,6 +24,10 @@ export const useStepView = ({ configs }: useStepViewProps) => {
   const forward = () => {
     setStepIndex(stepIndex + 1)
   }
+
+  useEffect(() => {
+    setStepInfo({...stepInfo, currentIndex: stepIndex})
+  }, [stepIndex])
 
   return {
     stepIndex,

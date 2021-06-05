@@ -26,6 +26,6 @@ export const defaultCarrerState: Carrer = {
 }
 
 export const carrerState = atom<Carrer>({
-  key: AtomKeys.Personal_Info_Carrer,
+  key: AtomKeys.Carrer,
   default: defaultCarrerState
 })

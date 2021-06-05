@@ -32,6 +32,6 @@ export const defaultBasicInfoState: BasicInfo = {
 }
 
 export const basicInfoState = atom<BasicInfo>({
-  key: AtomKeys.Personal_Info_BasicInfo,
+  key: AtomKeys.BasicInfo,
   default: defaultBasicInfoState
 })
