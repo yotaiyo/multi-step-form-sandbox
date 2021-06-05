@@ -1,14 +1,7 @@
-import {
-  VStack,
-  FormControl,
-  FormLabel,
-  HStack,
-  Box
-} from '@chakra-ui/react'
-import { LabelAndTextInput, StepView, Select } from '../../../../ui'
+import { VStack } from '@chakra-ui/react'
+import { LabelAndTextInput, LabelAndDateInput, LabelAndTextareaInput, StepView } from '../../../../ui'
 import { useCarrer } from './useCarrer'
 import { DefaultStepProps } from '../types'
-import { range } from '../../../../../utils'
 
 export const CarrerStep: React.FC<DefaultStepProps> = ({
   title,
@@ -21,9 +14,6 @@ export const CarrerStep: React.FC<DefaultStepProps> = ({
 }) => {
   const { methods, setValues } = useCarrer()
   const { register, formState: { errors } } = methods
-
-  const startBirthDayYear = 1900
-  const currentYear = new Date().getFullYear()
 
   console.count('CarrerStepがレンダリングされた回数')
   return (
@@ -45,55 +35,17 @@ export const CarrerStep: React.FC<DefaultStepProps> = ({
         <LabelAndTextInput label='役職' {...register('position')} />
         <LabelAndTextInput label='雇用形態' {...register('employmentStatus')} />
 
-        {/* FIXME: コンポーネントとして切り出す */}
-        <FormControl>
-          <FormLabel>開始日</FormLabel>
-          <HStack spacing='4px'>
-            <Box width='120px'>
-              <Select {...register('startDateYear')}>
-                {
-                  range(startBirthDayYear, currentYear - startBirthDayYear + 1).map((year) => (
-                    <option key={year} label={`${year}年`} value={year} />
-                  ))
-                }
-              </Select>
-            </Box>
-            <Box width='120px'>
-              <Select {...register('startDateMonth')}>
-                {
-                  range(1, 12).map((month) => (
-                    <option key={month} label={`${month}月`} value={month} />
-                  ))
-                }
-              </Select>
-            </Box>
-          </HStack>
-        </FormControl>
+        <LabelAndDateInput label='開始日'>
+          <LabelAndDateInput.SelectYear {...register('startDateYear')} />
+          <LabelAndDateInput.SelectMonth {...register('startDateMonth')} />
+        </LabelAndDateInput>
 
-        {/* FIXME: コンポーネントとして切り出す */}
-        <FormControl>
-          <FormLabel>終了日</FormLabel>
-          <HStack spacing='4px'>
-            <Box width='120px'>
-              <Select {...register('endDateYear')}>
-                {
-                  range(startBirthDayYear, currentYear - startBirthDayYear + 1).map((year) => (
-                    <option key={year} label={`${year}年`} value={year} />
-                  ))
-                }
-              </Select>
-            </Box>
-            <Box width='120px'>
-              <Select {...register('endDateMonth')}>
-                {
-                  range(1, 12).map((month) => (
-                    <option key={month} label={`${month}月`} value={month} />
-                  ))
-                }
-              </Select>
-            </Box>
-          </HStack>
-        </FormControl>
+        <LabelAndDateInput label='終了日'>
+          <LabelAndDateInput.SelectYear {...register('endDateYear')} />
+          <LabelAndDateInput.SelectMonth {...register('endDateMonth')} />
+        </LabelAndDateInput>
+
+        <LabelAndTextareaInput label='説明' {...register('description')} />
       </VStack>
     </StepView>
   )

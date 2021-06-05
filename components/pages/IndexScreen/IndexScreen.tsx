@@ -14,7 +14,7 @@ type StepConfig = {
 
 const stepConfigs: StepConfig[] = [
   {
-    title: '基本情報入力',
+    title: '基本情報',
     render: (props) => {
       return (
         <BasicInfoStep {...props} />
@@ -22,7 +22,7 @@ const stepConfigs: StepConfig[] = [
     }
   },
   {
-    title: '職業を教えてください',
+    title: '職業',
     render: (props) => {
       return (
         <CarrerStep {...props} />
@@ -38,7 +38,7 @@ const stepConfigs: StepConfig[] = [
     }
   },
   {
-    title: 'いくつかの質問に答えてください',
+    title: '質問',
     render: (props) => {
       return (
         <QuestionStep {...props} />
