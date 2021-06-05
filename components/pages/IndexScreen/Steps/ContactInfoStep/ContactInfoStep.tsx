@@ -2,7 +2,7 @@ import { VStack } from '@chakra-ui/react'
 import { LabelAndTextInput, StepView } from '../../../../ui'
 import { DefaultStepProps } from '../types'
 
-export const AddressStep: React.FC<DefaultStepProps> = ({
+export const ContactInfoStep: React.FC<DefaultStepProps> = ({
   title,
   currentStep,
   numOfStep,

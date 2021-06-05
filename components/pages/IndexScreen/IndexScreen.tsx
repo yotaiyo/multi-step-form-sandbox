@@ -4,7 +4,7 @@ import { Center, Box } from '@chakra-ui/react'
 import { DefaultStepProps } from './Steps/types'
 import { BasicInfoStep,  } from './Steps/BasicInfoStep'
 import { CarrerStep } from './Steps/CarrerStep'
-import { AddressStep } from './Steps/AddressStep'
+import { ContactInfoStep } from './Steps/ContactInfoStep'
 import { QuestionStep } from './Steps/QuestionStep'
 
 type StepConfig = {
@@ -30,10 +30,10 @@ const stepConfigs: StepConfig[] = [
     }
   },
   {
-    title: '住所',
+    title: '連絡先',
     render: (props) => {
       return (
-        <AddressStep {...props} />
+        <ContactInfoStep {...props} />
       )
     }
   },
