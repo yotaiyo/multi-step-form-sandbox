@@ -21,7 +21,7 @@ export const StepView: React.FC<StepViewProps> = ({
 }) => {
   return (
     <VStack align='unset'>
-      <VStack spacing='48px' align='unset' width='60%'>
+      <VStack spacing='48px' align='unset' width='50%'>
         <VStack align='unset'>
           <HStack>
             <Heading variant='screenTitle'>{currentStep}</Heading>
