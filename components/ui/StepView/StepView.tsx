@@ -1,10 +1,11 @@
-import { VStack, HStack, Text, Flex } from '@chakra-ui/react'
+import { VStack, HStack, Text, Flex, Menu, MenuList, MenuItem } from '@chakra-ui/react'
 
 import { Heading } from '../Heading'
 import { Pagination } from '../Pagination'
 
 export type StepViewProps = {
   stepIndex: number
+  setStepIndex: React.Dispatch<React.SetStateAction<number>>
   stepTitles: string[]
   stepErrors: boolean[]
   setStepErrors: React.Dispatch<React.SetStateAction<boolean[]>>
@@ -14,6 +15,7 @@ export type StepViewProps = {
 
 export const StepView: React.FC<StepViewProps> = ({
   stepIndex,
+  setStepIndex,
   stepTitles,
   stepErrors,
   setStepErrors,
@@ -25,7 +27,7 @@ export const StepView: React.FC<StepViewProps> = ({
   const isLastStep = stepIndex === stepTitles.length - 1
 
   return (
-    <VStack align='unset'>
+    <HStack align='unset' spacing='48px'>
       <VStack spacing='48px' align='unset' width='50%'>
         <VStack align='unset'>
           <HStack>
@@ -46,6 +48,24 @@ export const StepView: React.FC<StepViewProps> = ({
           onClickNext={onClickNext}
         />
       </VStack>
-    </VStack>
+      <VStack width='50%'>
+        <Menu isOpen={true}>
+          <MenuList>
+            {stepTitles.map((title, index) => {
+              return (
+                <MenuItem
+                  key={index}
+                  onClick={() => {
+                    setStepIndex(index)
+                  }}
+                >
+                  {title}
+                </MenuItem>
+              )
+            })}
+          </MenuList>
+        </Menu>
+      </VStack>
+    </HStack>
   )
 }

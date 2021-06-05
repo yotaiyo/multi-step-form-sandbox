@@ -5,6 +5,7 @@ import { useSelfIntroduction } from './useSelfIntroduction'
 
 export const SelfIntroductionStep: React.FC<DefaultStepProps> = ({
   stepIndex,
+  setStepIndex,
   stepTitles,
   onClickPrevious,
   onClickNext,
@@ -17,6 +18,7 @@ export const SelfIntroductionStep: React.FC<DefaultStepProps> = ({
   return (
     <StepView
       stepIndex={stepIndex}
+      setStepIndex={setStepIndex}
       stepTitles={stepTitles}
       onClickPrevious={() => {
         onClickPrevious && onClickPrevious()

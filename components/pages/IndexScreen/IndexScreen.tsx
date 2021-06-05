@@ -68,6 +68,7 @@ export const IndexScreen = () => {
         <Box backgroundColor='white' width='1024px' padding='24px' borderRadius='12px' >
           {stepConfigs[stepIndex].render({
             stepIndex,
+            setStepIndex,
             stepTitles: stepConfigs.map(config => config.title),
             stepErrors,
             setStepErrors,
