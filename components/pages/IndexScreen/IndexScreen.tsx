@@ -1,11 +1,10 @@
 import React from 'react'
 import { Center, Box } from '@chakra-ui/react'
-import { StepConfig } from '../../ui'
+import { StepConfig, useStepView } from '../../ui'
 import { BasicInfoStep } from './Steps/BasicInfoStep'
 import { CarrerStep } from './Steps/CarrerStep'
 import { ContactInfoStep } from './Steps/ContactInfoStep'
 import { SelfIntroductionStep } from './Steps/SelfIntroductionStep'
-import { useStepInfoRecoilStates } from '../../../recoil'
 
 const stepConfigs: StepConfig[] = [
   {
@@ -30,12 +29,12 @@ const stepComponents = [
 ]
 
 export const IndexScreen = () => {
-  const { stepInfo } = useStepInfoRecoilStates()
+  const { stepInfo: { currentIndex } } = useStepView({ configs: stepConfigs })
 
   return (
     <Center>
       <Box backgroundColor='white' width='1024px' padding='24px' borderRadius='12px' >
-        {stepComponents[stepInfo.currentIndex]}
+        {stepComponents[currentIndex]}
       </Box>
     </Center>
   )

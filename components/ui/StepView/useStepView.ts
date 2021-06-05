@@ -24,7 +24,8 @@ export const useStepView = ({ configs }: useStepViewProps) => {
   }
 
   return {
-    currentIndex,
+    stepInfo,
+    setStepInfo,
     title: configs[currentIndex].title,
     previousTitle: !isFirstStep ? configs[currentIndex - 1].title : undefined,
     nextTitle: !isLastStep ? configs[currentIndex + 1].title : undefined,
