@@ -107,7 +107,7 @@ export const UserInfoConfirmScreen: React.FC = () => {
                 <Text>携帯番号: {mobilePhone}</Text>
                 <Text>郵便番号: {postalCode}</Text>
                 <Text>住所: {`${prefecture} ${city}${block ? block : ''}${building ? ' ' + building : ''}`}</Text>
-                <Text>最寄り駅・地区: {nearestStation}</Text>
+                <Text>最寄り駅: {nearestStation}</Text>
                 <Text>ウェブサイト: {website}</Text>
               </VStack>
             </VStack>

@@ -46,6 +46,7 @@ export const BasicInfoStep: React.FC<BasicInfoStepProps> = ({
           id='name'
           label='お名前'
           errorMessage={errors.name?.message}
+          placeholder='例) 山田 太郎'
           required
           {...register('name')}
         />
@@ -53,6 +54,7 @@ export const BasicInfoStep: React.FC<BasicInfoStepProps> = ({
           id='nameKana'
           label='フリガナ'
           errorMessage={errors.nameKana?.message}
+          placeholder='例) ヤマダ タロウ'
           required
           {...register('nameKana')}
         />
