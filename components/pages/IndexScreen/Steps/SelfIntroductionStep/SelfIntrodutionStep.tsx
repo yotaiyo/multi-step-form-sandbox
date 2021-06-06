@@ -3,23 +3,24 @@ import { LabelAndTextareaInput, StepView } from '../../../../ui'
 import { DefaultStepProps } from '../types'
 import { useSelfIntroduction } from './useSelfIntroduction'
 
+type SelfIntroductionStep = DefaultStepProps
+
 export const SelfIntroductionStep: React.FC<DefaultStepProps> = ({
-  stepIndex,
-  setStepIndex,
-  stepTitles,
-  onClickPrevious,
-  onClickNext,
-  stepErrors,
-  setStepErrors
+  ...props
 }) => {
+  const {
+    onClickPrevious,
+    onClickNext,
+    stepErrors,
+    stepIndex,
+    setStepErrors
+  } = props
   const { methods, setValues } = useSelfIntroduction({ stepIndex, stepErrors, setStepErrors })
   const { register } = methods
 
   return (
     <StepView
-      stepIndex={stepIndex}
-      setStepIndex={setStepIndex}
-      stepTitles={stepTitles}
+      {...props}
       onClickPrevious={() => {
         onClickPrevious && onClickPrevious()
         setValues()
@@ -28,8 +29,6 @@ export const SelfIntroductionStep: React.FC<DefaultStepProps> = ({
         onClickNext && onClickNext()
         setValues()
       }}
-      stepErrors={stepErrors}
-      setStepErrors={setStepErrors}
     >
       <VStack spacing="24px">
         <LabelAndTextareaInput label='好きなスポーツについて教えてください' {...register('sports')} />

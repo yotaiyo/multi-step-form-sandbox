@@ -3,24 +3,25 @@ import { LabelAndTextInput, StepView } from '../../../../ui'
 import { DefaultStepProps } from '../types'
 import { useContactInfo } from './useContactInfo'
 
-export const ContactInfoStep: React.FC<DefaultStepProps> = ({
-  stepIndex,
-  setStepIndex,
-  stepTitles,
-  onClickPrevious,
-  onClickNext,
-  stepErrors,
-  setStepErrors
+type ContactInfoStepProps = DefaultStepProps
+
+export const ContactInfoStep: React.FC<ContactInfoStepProps> = ({
+  ...props
 }) => {
+  const {
+    onClickPrevious,
+    onClickNext,
+    stepErrors,
+    stepIndex,
+    setStepErrors
+  } = props
   const { methods, setValues } = useContactInfo({ stepIndex, stepErrors, setStepErrors })
   const { register, formState: { errors }} = methods
 
   console.count('ContactInfoStepがレンダリングされた回数')
   return (
     <StepView
-      stepIndex={stepIndex}
-      setStepIndex={setStepIndex}
-      stepTitles={stepTitles}
+      {...props}
       onClickPrevious={() => {
         onClickPrevious && onClickPrevious()
         setValues()
@@ -29,8 +30,6 @@ export const ContactInfoStep: React.FC<DefaultStepProps> = ({
         onClickNext && onClickNext()
         setValues()
       }}
-      stepErrors={stepErrors}
-      setStepErrors={setStepErrors}
     >
       <VStack spacing="24px">
         <LabelAndTextInput label="携帯番号" errorMessage={errors.mobilePhone?.message} required {...register('mobilePhone')} />

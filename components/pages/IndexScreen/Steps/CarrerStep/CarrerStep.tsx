@@ -3,24 +3,29 @@ import { LabelAndTextInput, LabelAndDateInput, LabelAndTextareaInput, StepView }
 import { useCarrer } from './useCarrer'
 import { DefaultStepProps } from '../types'
 
-export const CarrerStep: React.FC<DefaultStepProps> = ({
-  stepIndex,
-  setStepIndex,
-  stepTitles,
-  onClickPrevious,
-  onClickNext,
-  stepErrors,
-  setStepErrors
+type CarrerStepProps = DefaultStepProps
+
+export const CarrerStep: React.FC<CarrerStepProps> = ({
+  ...props
 }) => {
-  const { methods, setValues } = useCarrer({ stepIndex, stepErrors, setStepErrors })
+  const {
+    onClickPrevious,
+    onClickNext,
+    stepErrors,
+    stepIndex,
+    setStepErrors
+  } = props
+  const { methods, setValues } = useCarrer({
+    stepIndex,
+    stepErrors,
+    setStepErrors
+  })
   const { register, formState: { errors } } = methods
 
   console.count('CarrerStepがレンダリングされた回数')
   return (
     <StepView
-      stepIndex={stepIndex}
-      setStepIndex={setStepIndex}
-      stepTitles={stepTitles}
+      {...props}
       onClickPrevious={() => {
         onClickPrevious && onClickPrevious()
         setValues()
@@ -29,8 +34,6 @@ export const CarrerStep: React.FC<DefaultStepProps> = ({
         onClickNext && onClickNext()
         setValues()
       }}
-      stepErrors={stepErrors}
-      setStepErrors={setStepErrors}
     >
       <VStack spacing="24px">
         <LabelAndTextInput

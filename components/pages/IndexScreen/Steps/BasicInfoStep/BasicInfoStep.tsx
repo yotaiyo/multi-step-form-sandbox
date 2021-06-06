@@ -3,24 +3,29 @@ import { LabelAndTextInput, LabelAndSelectInput, StepView, LabelAndDateInput } f
 import { useBasicInfo } from './useBasicInfo'
 import { DefaultStepProps } from '../types'
 
-export const BasicInfoStep: React.FC<DefaultStepProps> = ({
-  stepIndex,
-  setStepIndex,
-  stepTitles,
-  onClickPrevious,
-  onClickNext,
-  stepErrors,
-  setStepErrors
+type BasicInfoStepProps = DefaultStepProps
+
+export const BasicInfoStep: React.FC<BasicInfoStepProps> = ({
+  ...props
 }) => {
-  const { methods, setValues } = useBasicInfo({ stepIndex, stepErrors, setStepErrors })
+  const {
+    onClickPrevious,
+    onClickNext,
+    stepErrors,
+    stepIndex,
+    setStepErrors
+  } = props
+  const { methods, setValues } = useBasicInfo({
+    stepErrors,
+    stepIndex,
+    setStepErrors
+  })
   const { register, formState: { errors } } = methods
 
   console.count('BasicInfoStepがレンダリングされた回数')
   return (
     <StepView
-      stepIndex={stepIndex}
-      setStepIndex={setStepIndex}
-      stepTitles={stepTitles}
+      {...props}
       onClickPrevious={() => {
         onClickPrevious && onClickPrevious()
         setValues()
@@ -29,8 +34,6 @@ export const BasicInfoStep: React.FC<DefaultStepProps> = ({
         onClickNext && onClickNext()
         setValues()
       }}
-      stepErrors={stepErrors}
-      setStepErrors={setStepErrors}
     >
       <VStack spacing="24px">
         <LabelAndTextInput
