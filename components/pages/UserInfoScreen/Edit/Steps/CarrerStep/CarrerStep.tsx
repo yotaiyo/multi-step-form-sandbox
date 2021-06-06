@@ -43,6 +43,7 @@ export const CarrerStep: React.FC<CarrerStepProps> = ({
     >
       <VStack spacing="24px">
         <LabelAndTextInput
+          id='companyName'
           label='会社名'
           errorMessage={errors.companyName?.message}
           required
@@ -50,6 +51,7 @@ export const CarrerStep: React.FC<CarrerStepProps> = ({
         />
 
         <LabelAndTextInput
+          id='position'
           label='役職'
           errorMessage={errors.position?.message}
           required
@@ -57,13 +59,18 @@ export const CarrerStep: React.FC<CarrerStepProps> = ({
         />
 
         <LabelAndTextInput
+          id='employmentStatus'
           label='雇用形態'
           errorMessage={errors.employmentStatus?.message}
           required
           {...register('employmentStatus')}
         />
 
-        <LabelAndTextInput label='場所' {...register('place')} />
+        <LabelAndTextInput
+          id='place'
+          label='場所'
+          {...register('place')}
+        />
 
         <LabelAndDateInput label='開始日'>
           <LabelAndDateInput.SelectYear {...register('startDateYear')} />
