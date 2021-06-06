@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { useContactInfoRecoilStates } from '../../../../../recoil'
+import { useContactInfoRecoilStates } from '../../../../../../recoil'
 
 const schema = yup.object().shape({
   mobilePhone: yup.string().required('電話番号を入力してください'),

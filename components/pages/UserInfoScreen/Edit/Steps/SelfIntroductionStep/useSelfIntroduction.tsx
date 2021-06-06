@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { useSelfIntroductionRecoilStates } from '../../../../../recoil'
+import { useSelfIntroductionRecoilStates } from '../../../../../../recoil'
 
 const schema = yup.object().shape({})
 

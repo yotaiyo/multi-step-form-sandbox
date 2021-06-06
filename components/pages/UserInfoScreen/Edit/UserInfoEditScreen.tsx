@@ -48,7 +48,7 @@ const stepConfigs: StepConfig[] = [
 ]
 
 
-export const IndexScreen = () => {
+export const UserInfoEditScreen = () => {
   const [stepIndex, setStepIndex] = useState(0)
   const [stepErrors, setStepErrors] = useState(
     Array.from({ length: stepConfigs.length }, () => true)

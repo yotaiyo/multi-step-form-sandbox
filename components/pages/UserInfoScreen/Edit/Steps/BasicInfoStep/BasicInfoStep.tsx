@@ -1,5 +1,5 @@
 import { VStack } from '@chakra-ui/react'
-import { LabelAndTextInput, LabelAndSelectInput, StepView, LabelAndDateInput } from '../../../../ui'
+import { LabelAndTextInput, LabelAndSelectInput, StepView, LabelAndDateInput } from '../../../../../ui'
 import { useBasicInfo } from './useBasicInfo'
 import { DefaultStepProps } from '../types'
 

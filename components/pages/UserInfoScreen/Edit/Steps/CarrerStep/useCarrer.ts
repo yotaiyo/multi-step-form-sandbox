@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { useCarrerRecoilStates } from '../../../../../recoil'
+import { useCarrerRecoilStates } from '../../../../../../recoil'
 
 const schema = yup.object().shape({
   companyName: yup.string().required('会社名を入力してください'),
