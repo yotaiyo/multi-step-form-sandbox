@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
-import { RecoilRoot } from 'recoil'
 import { Center, Box } from '@chakra-ui/react'
 import { DefaultStepProps } from './Steps/types'
 import { BasicInfoStep,  } from './Steps/BasicInfoStep'
@@ -75,21 +74,19 @@ export const UserInfoEditScreen: React.FC<UserInfoEditScreenProps> = ({
   }
 
   return (
-    <RecoilRoot>
-      <Center>
-        <Box backgroundColor='white' width='1024px' padding='24px' borderRadius='12px' >
-          {stepConfigs[stepIndex].render({
-            stepIndex,
-            setStepIndex,
-            stepTitles: stepConfigs.map(config => config.title),
-            stepErrors,
-            setStepErrors,
-            onClickPrevious: backward,
-            onClickNext: forward,
-            onClickConfirmButton
-          })}
-        </Box>
-      </Center>
-    </RecoilRoot>
+    <Center>
+      <Box backgroundColor='white' width='1024px' padding='24px' borderRadius='12px' >
+        {stepConfigs[stepIndex].render({
+          stepIndex,
+          setStepIndex,
+          stepTitles: stepConfigs.map(config => config.title),
+          stepErrors,
+          setStepErrors,
+          onClickPrevious: backward,
+          onClickNext: forward,
+          onClickConfirmButton
+        })}
+      </Box>
+    </Center>
   )
 }
