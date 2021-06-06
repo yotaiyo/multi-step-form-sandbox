@@ -1,4 +1,4 @@
-import { VStack, HStack, Text, Flex, Menu, MenuList, MenuItem } from '@chakra-ui/react'
+import { VStack, HStack, Center, Box, Text, Flex, Menu, MenuList, MenuItem, Button } from '@chakra-ui/react'
 import { WarningTwoIcon, CheckIcon } from '@chakra-ui/icons'
 import { Heading } from '../Heading'
 import { Pagination } from '../Pagination'
@@ -11,6 +11,7 @@ export type StepViewProps = {
   onClickPrevious: () => void
   onClickNext: () => void
   onClickMenuItem: () => void
+  onClickConfirmButton: () => void
 }
 
 export const StepView: React.FC<StepViewProps> = ({
@@ -21,6 +22,7 @@ export const StepView: React.FC<StepViewProps> = ({
   onClickPrevious,
   onClickNext,
   onClickMenuItem,
+  onClickConfirmButton,
   children,
 }) => {
   const isFirstStep = stepIndex === 0
@@ -28,7 +30,7 @@ export const StepView: React.FC<StepViewProps> = ({
 
   return (
     <HStack align='unset' spacing='48px'>
-      <VStack spacing='48px' align='unset' width='50%'>
+      <VStack spacing='48px' align='unset' width='60%'>
         <VStack align='unset'>
           <HStack>
             <Heading variant='screenTitle'>{stepIndex + 1}</Heading>
@@ -48,23 +50,37 @@ export const StepView: React.FC<StepViewProps> = ({
           onClickNext={onClickNext}
         />
       </VStack>
-      <VStack width='50%'>
-        <Menu isOpen={true}>
-          <MenuList>
-            {stepTitles.map((title, index) => {
-              return (
-                <MenuItem
-                  key={index}
-                  icon={stepErrors[index] ? <WarningTwoIcon color='red.600' /> : <CheckIcon />}
-                  onClick={() => {
-                    setStepIndex(index)
-                    onClickMenuItem()
-                  }}
-                >
-                  {title}
-                </MenuItem>
-              )
-            })}
+      <VStack width='40%'>
+        <Menu isOpen>
+          <MenuList padding='12px'>
+            <Box marginBottom='8px'>
+              {stepTitles.map((title, index) => {
+                return (
+                  <MenuItem
+                    key={index}
+                    icon={stepErrors[index] ? <WarningTwoIcon color='red.600' /> : <CheckIcon />}
+                    onClick={() => {
+                      setStepIndex(index)
+                      onClickMenuItem()
+                    }}
+                    fontSize='larger'
+                  >
+                    {title}
+                  </MenuItem>
+                )
+              })}
+            </Box>
+
+            <Center>
+              <Button
+                colorScheme="blue"
+                disabled={stepErrors.find(error => error)}
+                onClick={onClickConfirmButton}
+                size='lg'
+              >
+                  確認画面へ
+              </Button>
+            </Center>
           </MenuList>
         </Menu>
       </VStack>
