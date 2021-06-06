@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useRouter } from 'next/router'
 import { RecoilRoot } from 'recoil'
 import { Center, Box } from '@chakra-ui/react'
 import { DefaultStepProps } from './Steps/types'
@@ -47,8 +48,15 @@ const stepConfigs: StepConfig[] = [
   }
 ]
 
+type UserInfoEditScreenProps = {
+  id: string
+}
 
-export const UserInfoEditScreen = () => {
+export const UserInfoEditScreen: React.FC<UserInfoEditScreenProps> = ({
+  id
+}) => {
+  const router = useRouter()
+
   const [stepIndex, setStepIndex] = useState(0)
   const [stepErrors, setStepErrors] = useState(
     Array.from({ length: stepConfigs.length }, () => true)
@@ -62,6 +70,10 @@ export const UserInfoEditScreen = () => {
     setStepIndex(stepIndex + 1)
   }
 
+  const onClickConfirmButton = () => {
+    router.push(`/users/${id}/confirm`)
+  }
+
   return (
     <RecoilRoot>
       <Center>
@@ -73,7 +85,8 @@ export const UserInfoEditScreen = () => {
             stepErrors,
             setStepErrors,
             onClickPrevious: backward,
-            onClickNext: forward
+            onClickNext: forward,
+            onClickConfirmButton
           })}
         </Box>
       </Center>
