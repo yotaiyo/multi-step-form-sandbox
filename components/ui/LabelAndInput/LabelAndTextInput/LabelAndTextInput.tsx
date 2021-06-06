@@ -21,7 +21,7 @@ export const LabelAndTextInput = React.forwardRef<HTMLInputElement, LabelAndText
       <FormLabel>
         <HStack>
           {label && <Text>{label}</Text>}
-          {required && <Text color='blue.500' fontSize='sm'>必須</Text>}
+          {required && <Text color='red.500' fontSize='sm'>必須</Text>}
         </HStack>
       </FormLabel>
       <TextInput
