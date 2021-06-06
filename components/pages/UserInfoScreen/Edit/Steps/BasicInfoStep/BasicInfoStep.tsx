@@ -80,7 +80,7 @@ export const BasicInfoStep: React.FC<BasicInfoStepProps> = ({
           />
         </LabelAndDateInput>
 
-        <LabelAndSelectInput label='性別' width='120px' {...register('gender')}>
+        <LabelAndSelectInput label='性別' width='120px' placeholder='--' {...register('gender')}>
           <option label='男性' value='man' />
           <option label='女性' value='woman' />
           <option label='その他' value='other' />
