@@ -13,7 +13,8 @@ export const BasicInfoStep: React.FC<BasicInfoStepProps> = ({
     onClickNext,
     stepErrors,
     stepIndex,
-    setStepErrors
+    setStepErrors,
+    onClickConfirmButton
   } = props
   const { methods, setValues } = useBasicInfo({
     stepErrors,
@@ -35,6 +36,10 @@ export const BasicInfoStep: React.FC<BasicInfoStepProps> = ({
         setValues()
       }}
       onClickMenuItem={setValues}
+      onClickConfirmButton={() => {
+        onClickConfirmButton()
+        setValues()
+      }}
     >
       <VStack spacing="24px">
         <LabelAndTextInput

@@ -13,7 +13,8 @@ export const CarrerStep: React.FC<CarrerStepProps> = ({
     onClickNext,
     stepErrors,
     stepIndex,
-    setStepErrors
+    setStepErrors,
+    onClickConfirmButton
   } = props
   const { methods, setValues } = useCarrer({
     stepIndex,
@@ -35,6 +36,10 @@ export const CarrerStep: React.FC<CarrerStepProps> = ({
         setValues()
       }}
       onClickMenuItem={setValues}
+      onClickConfirmButton={() => {
+        onClickConfirmButton()
+        setValues()
+      }}
     >
       <VStack spacing="24px">
         <LabelAndTextInput

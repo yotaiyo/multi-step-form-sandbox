@@ -13,7 +13,8 @@ export const SelfIntroductionStep: React.FC<DefaultStepProps> = ({
     onClickNext,
     stepErrors,
     stepIndex,
-    setStepErrors
+    setStepErrors,
+    onClickConfirmButton
   } = props
   const { methods, setValues } = useSelfIntroduction({ stepIndex, stepErrors, setStepErrors })
   const { register } = methods
@@ -30,6 +31,10 @@ export const SelfIntroductionStep: React.FC<DefaultStepProps> = ({
         setValues()
       }}
       onClickMenuItem={setValues}
+      onClickConfirmButton={() => {
+        onClickConfirmButton()
+        setValues()
+      }}
     >
       <VStack spacing="24px">
         <LabelAndTextareaInput label='好きなスポーツについて教えてください' {...register('sports')} />

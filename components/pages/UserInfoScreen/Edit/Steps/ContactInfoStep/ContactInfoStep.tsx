@@ -13,7 +13,8 @@ export const ContactInfoStep: React.FC<ContactInfoStepProps> = ({
     onClickNext,
     stepErrors,
     stepIndex,
-    setStepErrors
+    setStepErrors,
+    onClickConfirmButton
   } = props
   const { methods, setValues } = useContactInfo({ stepIndex, stepErrors, setStepErrors })
   const { register, formState: { errors }} = methods
@@ -31,6 +32,10 @@ export const ContactInfoStep: React.FC<ContactInfoStepProps> = ({
         setValues()
       }}
       onClickMenuItem={setValues}
+      onClickConfirmButton={() => {
+        onClickConfirmButton()
+        setValues()
+      }}
     >
       <VStack spacing="24px">
         <LabelAndTextInput label="携帯番号" errorMessage={errors.mobilePhone?.message} required {...register('mobilePhone')} />
