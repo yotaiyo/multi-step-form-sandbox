@@ -1,17 +1,12 @@
-import { VStack, HStack, Center, Box, Text, Flex, Menu, MenuList, MenuItem, Button } from '@chakra-ui/react'
-import { WarningTwoIcon, CheckIcon } from '@chakra-ui/icons'
+import { VStack, HStack, Text, Flex } from '@chakra-ui/react'
 import { Heading } from '../Heading'
 import { Pagination } from '../Pagination'
+import { MenuNavigation, MenuNavigationProps } from './MenuNavigation'
 
-export type StepViewProps = {
+export type StepViewProps = MenuNavigationProps & {
   stepIndex: number
-  setStepIndex: React.Dispatch<React.SetStateAction<number>>
-  stepTitles: string[]
-  stepErrors: boolean[]
   onClickPrevious: () => void
   onClickNext: () => void
-  onClickMenuItem: () => void
-  onClickConfirmButton: () => void
 }
 
 export const StepView: React.FC<StepViewProps> = ({
@@ -51,38 +46,13 @@ export const StepView: React.FC<StepViewProps> = ({
         />
       </VStack>
       <VStack width='40%'>
-        <Menu isOpen>
-          <MenuList padding='12px'>
-            <Box marginBottom='8px'>
-              {stepTitles.map((title, index) => {
-                return (
-                  <MenuItem
-                    key={index}
-                    icon={stepErrors[index] ? <WarningTwoIcon color='red.600' /> : <CheckIcon />}
-                    onClick={() => {
-                      setStepIndex(index)
-                      onClickMenuItem()
-                    }}
-                    fontSize='larger'
-                  >
-                    {title}
-                  </MenuItem>
-                )
-              })}
-            </Box>
-
-            <Center>
-              <Button
-                colorScheme="blue"
-                disabled={stepErrors.find(error => error)}
-                onClick={onClickConfirmButton}
-                size='lg'
-              >
-                  確認画面へ
-              </Button>
-            </Center>
-          </MenuList>
-        </Menu>
+        <MenuNavigation
+          stepTitles={stepTitles}
+          setStepIndex={setStepIndex}
+          stepErrors={stepErrors}
+          onClickMenuItem={onClickMenuItem}
+          onClickConfirmButton={onClickConfirmButton}
+        />
       </VStack>
     </HStack>
   )
