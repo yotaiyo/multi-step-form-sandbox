@@ -6,7 +6,10 @@ import { useUserInfoRecoilStates } from '../../../../../../recoil'
 
 const schema = yup.object().shape({
   name: yup.string().required('お名前を入力してください'),
-  nameKana: yup.string().required('ふりがなを入力してください')
+  nameKana: yup.string().required('ふりがなを入力してください'),
+  birthDayYear: yup.string().required('生年月日を入力してください'),
+  birthDayMonth: yup.string().required('生年月日を入力してください'),
+  birthDayDay: yup.string().required('生年月日を入力してください')
 })
 
 type useBasicInfoType = {

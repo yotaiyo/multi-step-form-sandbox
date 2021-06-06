@@ -9,6 +9,7 @@ export type SelectProps = {
   onBlur?: React.FocusEventHandler<HTMLSelectElement>
   width?: string
   placeholder?: string
+  isError?: boolean
   children?: React.ComponentProps<'select'>['children']
 }
 
@@ -20,6 +21,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(({
   onBlur,
   width,
   placeholder,
+  isError,
   children
 }, ref) => {
   return (
@@ -32,6 +34,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(({
         onChange={onChange}
         onBlur={onBlur}
         placeholder={placeholder}
+        isInvalid={isError}
       >
         {children}
       </ChakraSelect>

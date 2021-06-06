@@ -57,10 +57,27 @@ export const BasicInfoStep: React.FC<BasicInfoStepProps> = ({
           {...register('nameKana')}
         />
 
-        <LabelAndDateInput label='生年月日'>
-          <LabelAndDateInput.SelectYear {...register('birthDayYear')} />
-          <LabelAndDateInput.SelectMonth {...register('birthDayMonth')} />
-          <LabelAndDateInput.SelectDay {...register('birthDayDay')} />
+        <LabelAndDateInput
+          errorMessage={
+            errors.birthDayYear?.message ||
+            errors.birthDayMonth?.message ||
+            errors.birthDayDay?.message
+          }
+          required
+          label='生年月日'
+        >
+          <LabelAndDateInput.SelectYear
+            isError={!!errors.birthDayYear?.message}
+            {...register('birthDayYear')}
+          />
+          <LabelAndDateInput.SelectMonth
+            isError={!!errors.birthDayMonth?.message}
+            {...register('birthDayMonth')}
+          />
+          <LabelAndDateInput.SelectDay
+            isError={!!errors.birthDayDay?.message}
+            {...register('birthDayDay')}
+          />
         </LabelAndDateInput>
 
         <LabelAndSelectInput label='性別' width='120px' {...register('gender')}>

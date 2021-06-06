@@ -1,6 +1,7 @@
 import React from 'react'
-import { HStack, Box, FormControl, FormLabel, Text } from '@chakra-ui/react'
+import { HStack, FormControl, FormLabel, Text, FormErrorMessage } from '@chakra-ui/react'
 import { Select, SelectProps } from '../../Select'
+import { DefaultLabelAndInputProps } from '../type'
 import { range } from '../../../../utils'
 
 type SelectYearProps = Omit<SelectProps, 'width' | 'children'> & {
@@ -13,21 +14,30 @@ const SelectYear = React.forwardRef<HTMLSelectElement, SelectYearProps>(({
   name,
   startYear = 1900,
   onBlur,
-  onChange
+  onChange,
+  isError
 }, ref) => {
   const currentYear = new Date().getFullYear()
 
   return (
     <HStack>
-      <Box width='100px'>
-        <Select ref={ref} id={id} name={name} value={value} onChange={onChange} onBlur={onBlur} placeholder='--'>
-          {
-            range(startYear, currentYear - startYear + 1).map((year) => (
-              <option key={year} label={`${year}`} value={year} />
-            ))
-          }
-        </Select>
-      </Box>
+      <Select
+        ref={ref}
+        id={id}
+        name={name}
+        value={value}
+        onChange={onChange}
+        onBlur={onBlur}
+        width='100px'
+        placeholder='--'
+        isError={isError}
+      >
+        {
+          range(startYear, currentYear - startYear + 1).map((year) => (
+            <option key={year} label={`${year}`} value={year} />
+          ))
+        }
+      </Select>
       <Text>年</Text>
     </HStack>
   )
@@ -40,20 +50,29 @@ const SelectMonth = React.forwardRef<HTMLSelectElement, SelectMonthProps>(({
   name,
   value,
   onBlur,
-  onChange
+  onChange,
+  isError
 }, ref) => {
 
   return (
     <HStack>
-      <Box width='80px'>
-        <Select ref={ref} id={id} name={name} value={value} onChange={onChange} onBlur={onBlur} placeholder='--'>
-          {
-            range(1, 12).map((month) => (
-              <option key={month} label={`${month}`} value={month} />
-            ))
-          }
-        </Select>
-      </Box>
+      <Select
+        ref={ref}
+        id={id}
+        name={name}
+        value={value}
+        onChange={onChange}
+        onBlur={onBlur}
+        width='80px'
+        placeholder='--'
+        isError={isError}
+      >
+        {
+          range(1, 12).map((month) => (
+            <option key={month} label={`${month}`} value={month} />
+          ))
+        }
+      </Select>
       <Text>月</Text>
     </HStack>
   )
@@ -66,40 +85,53 @@ const SelectDay = React.forwardRef<HTMLSelectElement, SelectDayProps>(({
   name,
   value,
   onBlur,
-  onChange
+  onChange,
+  isError
 }, ref) => {
 
   return (
     <HStack>
-      <Box width='80px'>
-        <Select ref={ref} id={id} name={name} value={value} onChange={onChange} onBlur={onBlur} placeholder='--'>
-          {
-            range(1, 31).map((day) => (
-              <option key={day} label={`${day}`} value={day} />
-            ))
-          }
-        </Select>
-      </Box>
+      <Select
+        ref={ref}
+        id={id}
+        name={name}
+        value={value}
+        onChange={onChange}
+        onBlur={onBlur}
+        width='80px'
+        placeholder='--'
+        isError={isError}
+      >
+        {
+          range(1, 31).map((day) => (
+            <option key={day} label={`${day}`} value={day} />
+          ))
+        }
+      </Select>
       <Text>日</Text>
     </HStack>
   )
 })
 
-export type LabelAndDateInputProps = {
-  label?: string
-}
+export type LabelAndDateInputProps = DefaultLabelAndInputProps
 
 export const LabelAndDateInput: React.FC<LabelAndDateInputProps> & {
   SelectYear: typeof SelectYear
   SelectMonth: typeof SelectMonth
   SelectDay: typeof SelectDay
-} = ({ label, children }) => {
+} = ({ label, errorMessage, required, children }) => {
   return (
-    <FormControl>
-      <FormLabel>{label}</FormLabel>
+    <FormControl isInvalid={!!errorMessage}>
+      <FormLabel>
+        <HStack>
+          {label && <Text>{label}</Text>}
+          {required && <Text color='blue.500' fontSize='sm'>必須</Text>}
+        </HStack>
+      </FormLabel>
       <HStack spacing='8px'>
         {children}
       </HStack>
+      {errorMessage && <FormErrorMessage>{errorMessage}</FormErrorMessage>}
     </FormControl>
   )
 }
