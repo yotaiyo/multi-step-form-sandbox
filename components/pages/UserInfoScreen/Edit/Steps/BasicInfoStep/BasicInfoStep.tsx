@@ -34,6 +34,7 @@ export const BasicInfoStep: React.FC<BasicInfoStepProps> = ({
         onClickNext && onClickNext()
         setValues()
       }}
+      onClickMenuItem={setValues}
     >
       <VStack spacing="24px">
         <LabelAndTextInput

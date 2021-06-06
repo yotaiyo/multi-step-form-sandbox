@@ -34,6 +34,7 @@ export const CarrerStep: React.FC<CarrerStepProps> = ({
         onClickNext && onClickNext()
         setValues()
       }}
+      onClickMenuItem={setValues}
     >
       <VStack spacing="24px">
         <LabelAndTextInput

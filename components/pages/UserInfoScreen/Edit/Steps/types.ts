@@ -1,3 +1,3 @@
 import { StepViewProps } from '../../../../ui'
 
-export type DefaultStepProps = StepViewProps
+export type DefaultStepProps = Omit<StepViewProps, 'onClickMenuItem'>

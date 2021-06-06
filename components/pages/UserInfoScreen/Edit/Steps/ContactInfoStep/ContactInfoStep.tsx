@@ -30,6 +30,7 @@ export const ContactInfoStep: React.FC<ContactInfoStepProps> = ({
         onClickNext && onClickNext()
         setValues()
       }}
+      onClickMenuItem={setValues}
     >
       <VStack spacing="24px">
         <LabelAndTextInput label="携帯番号" errorMessage={errors.mobilePhone?.message} required {...register('mobilePhone')} />

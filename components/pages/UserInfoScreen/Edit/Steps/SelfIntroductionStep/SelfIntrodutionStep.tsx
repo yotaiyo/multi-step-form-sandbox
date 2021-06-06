@@ -29,6 +29,7 @@ export const SelfIntroductionStep: React.FC<DefaultStepProps> = ({
         onClickNext && onClickNext()
         setValues()
       }}
+      onClickMenuItem={setValues}
     >
       <VStack spacing="24px">
         <LabelAndTextareaInput label='好きなスポーツについて教えてください' {...register('sports')} />

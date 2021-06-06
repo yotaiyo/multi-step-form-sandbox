@@ -11,6 +11,7 @@ export type StepViewProps = {
   setStepErrors: React.Dispatch<React.SetStateAction<boolean[]>>
   onClickPrevious: () => void
   onClickNext: () => void
+  onClickMenuItem: () => void
 }
 
 export const StepView: React.FC<StepViewProps> = ({
@@ -21,6 +22,7 @@ export const StepView: React.FC<StepViewProps> = ({
   setStepErrors,
   onClickPrevious,
   onClickNext,
+  onClickMenuItem,
   children,
 }) => {
   const isFirstStep = stepIndex === 0
@@ -58,6 +60,7 @@ export const StepView: React.FC<StepViewProps> = ({
                   icon={stepErrors[index] ? <WarningTwoIcon color='red.600' /> : <CheckIcon />}
                   onClick={() => {
                     setStepIndex(index)
+                    onClickMenuItem()
                   }}
                 >
                   {title}
