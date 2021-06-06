@@ -8,7 +8,6 @@ export type StepViewProps = {
   setStepIndex: React.Dispatch<React.SetStateAction<number>>
   stepTitles: string[]
   stepErrors: boolean[]
-  setStepErrors: React.Dispatch<React.SetStateAction<boolean[]>>
   onClickPrevious: () => void
   onClickNext: () => void
   onClickMenuItem: () => void
@@ -19,7 +18,6 @@ export const StepView: React.FC<StepViewProps> = ({
   setStepIndex,
   stepTitles,
   stepErrors,
-  setStepErrors,
   onClickPrevious,
   onClickNext,
   onClickMenuItem,
