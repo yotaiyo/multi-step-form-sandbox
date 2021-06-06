@@ -65,8 +65,6 @@ export const BasicInfoStep: React.FC<BasicInfoStepProps> = ({
         <LabelAndTextInput label='国' {...register('country')} />
         <LabelAndTextInput label='出身地' {...register('birthPlace')} />
         <LabelAndTextInput label='言語' {...register('language')} />
-        <LabelAndTextInput label='所属企業' {...register('company')} />
-        <LabelAndTextInput label='職業' {...register('job')} />
       </VStack>
     </StepView>
   )
