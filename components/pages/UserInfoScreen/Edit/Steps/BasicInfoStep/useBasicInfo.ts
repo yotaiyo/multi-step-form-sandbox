@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { useBasicInfoRecoilStates } from '../../../../../../recoil'
+import { useUserInfoRecoilStates } from '../../../../../../recoil'
 
 const schema = yup.object().shape({
   name: yup.string().required('お名前を入力してください'),
@@ -16,7 +16,7 @@ type useBasicInfoType = {
 }
 
 export const useBasicInfo = ({ stepIndex, stepErrors, setStepErrors }: useBasicInfoType) => {
-  const { basicInfo, setBasicInfo } = useBasicInfoRecoilStates()
+  const { basicInfo, setBasicInfo } = useUserInfoRecoilStates()
 
   const methods = useForm({
     mode: 'onBlur',

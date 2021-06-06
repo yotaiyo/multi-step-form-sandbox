@@ -1,6 +1,6 @@
 export const AtomKeys = {
-  User_Info_BasicInfo: 'User_Info_BasicInfo',
-  User_Info_Carrer: 'User_Info_Carrer',
-  User_Info_ContactInfo: 'User_Info_ContactInfo',
-  User_Info_SelfIntroduction: 'User_Info_SelfIntroduction'
+  UserInfo_BasicInfo: 'UserInfo_BasicInfo',
+  UserInfo_Carrer: 'UserInfo_Carrer',
+  UserInfo_ContactInfo: 'UserInfo_ContactInfo',
+  UserInfo_SelfIntroduction: 'UserInfo_SelfIntroduction'
 }

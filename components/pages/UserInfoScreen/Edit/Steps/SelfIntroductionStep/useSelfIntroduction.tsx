@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { useSelfIntroductionRecoilStates } from '../../../../../../recoil'
+import { useUserInfoRecoilStates } from '../../../../../../recoil'
 
 const schema = yup.object().shape({})
 
@@ -13,7 +13,7 @@ type useSelfIntroductionType = {
 }
 
 export const useSelfIntroduction = ({ stepIndex, stepErrors, setStepErrors }: useSelfIntroductionType) => {
-  const { selfIntroduction, setSelfIntroduction } = useSelfIntroductionRecoilStates()
+  const { selfIntroduction, setSelfIntroduction } = useUserInfoRecoilStates()
 
   const methods = useForm({
     mode: 'onBlur',

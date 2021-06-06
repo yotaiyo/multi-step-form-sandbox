@@ -18,6 +18,6 @@ export const defaultSelfIntroductionState: SelfIntroduction = {
 }
 
 export const selfIntroductionState = atom<SelfIntroduction>({
-  key: AtomKeys.User_Info_SelfIntroduction,
+  key: AtomKeys.UserInfo_SelfIntroduction,
   default: defaultSelfIntroductionState
 })

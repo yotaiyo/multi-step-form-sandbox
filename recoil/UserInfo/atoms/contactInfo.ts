@@ -26,6 +26,6 @@ export const defaultContactInfoState: ContactInfo = {
 }
 
 export const contactInfoState = atom<ContactInfo>({
-  key: AtomKeys.User_Info_ContactInfo,
+  key: AtomKeys.UserInfo_ContactInfo,
   default: defaultContactInfoState
 })

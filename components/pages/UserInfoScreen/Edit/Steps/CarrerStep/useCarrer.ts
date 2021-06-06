@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { useCarrerRecoilStates } from '../../../../../../recoil'
+import { useUserInfoRecoilStates } from '../../../../../../recoil'
 
 const schema = yup.object().shape({
   companyName: yup.string().required('会社名を入力してください'),
@@ -17,7 +17,7 @@ type useCarrerType = {
 }
 
 export const useCarrer = ({ stepIndex, stepErrors, setStepErrors }: useCarrerType) => {
-  const { carrer, setCarrer } = useCarrerRecoilStates()
+  const { carrer, setCarrer } = useUserInfoRecoilStates()
 
   const methods = useForm({
     mode: 'onBlur',

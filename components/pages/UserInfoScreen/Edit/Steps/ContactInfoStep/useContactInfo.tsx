@@ -2,7 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
-import { useContactInfoRecoilStates } from '../../../../../../recoil'
+import { useUserInfoRecoilStates } from '../../../../../../recoil'
 
 const schema = yup.object().shape({
   mobilePhone: yup.string().required('電話番号を入力してください'),
@@ -20,7 +20,7 @@ type useContactInfoType = {
 }
 
 export const useContactInfo = ({ stepIndex, stepErrors, setStepErrors }: useContactInfoType) => {
-  const { contactInfo, setContactInfo } = useContactInfoRecoilStates()
+  const { contactInfo, setContactInfo } = useUserInfoRecoilStates()
 
   const methods = useForm({
     mode: 'onBlur',

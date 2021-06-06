@@ -1,5 +1,2 @@
 export * from './atomKeys'
-export * from './BasicInfo'
-export * from './Carrer'
-export * from './ContactInfo'
-export * from './SelfIntroduction'
+export * from './UserInfo'
