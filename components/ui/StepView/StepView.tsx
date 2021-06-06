@@ -1,4 +1,4 @@
-import { VStack, HStack, Text, Flex } from '@chakra-ui/react'
+import { VStack, HStack, Text, Flex, Button } from '@chakra-ui/react'
 import { Heading } from '../Heading'
 import { Pagination } from '../Pagination'
 import { MenuNavigation, MenuNavigationProps } from './MenuNavigation'
@@ -7,6 +7,7 @@ export type StepViewProps = MenuNavigationProps & {
   stepIndex: number
   onClickPrevious: () => void
   onClickNext: () => void
+  onClickConfirmButton: () => void
 }
 
 export const StepView: React.FC<StepViewProps> = ({
@@ -22,6 +23,17 @@ export const StepView: React.FC<StepViewProps> = ({
 }) => {
   const isFirstStep = stepIndex === 0
   const isLastStep = stepIndex === stepTitles.length - 1
+
+  const ConfirmButton = () => (
+    <Button
+      colorScheme="blue"
+      disabled={stepErrors.find(error => error)}
+      onClick={onClickConfirmButton}
+      size='lg'
+    >
+        確認画面へ
+    </Button>
+  )
 
   return (
     <HStack align='unset' spacing='48px'>
@@ -43,7 +55,9 @@ export const StepView: React.FC<StepViewProps> = ({
           nextTitle={!isLastStep ? stepTitles[stepIndex + 1] : undefined}
           onClickPrevious={onClickPrevious}
           onClickNext={onClickNext}
+          lastButton={<ConfirmButton />}
         />
+
       </VStack>
       <VStack width='40%'>
         <MenuNavigation
@@ -51,7 +65,7 @@ export const StepView: React.FC<StepViewProps> = ({
           setStepIndex={setStepIndex}
           stepErrors={stepErrors}
           onClickMenuItem={onClickMenuItem}
-          onClickConfirmButton={onClickConfirmButton}
+          bottomButton={<ConfirmButton />}
         />
       </VStack>
     </HStack>

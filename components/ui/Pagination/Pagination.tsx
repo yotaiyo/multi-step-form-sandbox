@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, VStack, Text, HStack, Spacer } from '@chakra-ui/react'
+import { Flex, VStack, Text, HStack, Spacer, Center } from '@chakra-ui/react'
 import { ArrowBackIcon, ArrowForwardIcon } from '@chakra-ui/icons'
 
 export type PaginationProps = {
@@ -7,13 +7,15 @@ export type PaginationProps = {
   nextTitle?: string
   onClickPrevious?: () => void
   onClickNext?: () => void
+  lastButton?: React.ReactNode
 }
 
 export const Pagination: React.FC<PaginationProps> = ({
   previousTitle,
   nextTitle,
   onClickPrevious,
-  onClickNext
+  onClickNext,
+  lastButton
 }) => {
   return (
     <Flex>
@@ -30,7 +32,7 @@ export const Pagination: React.FC<PaginationProps> = ({
       <Spacer />
 
       {
-        nextTitle &&
+        nextTitle ?
           <VStack alignItems='flex-end' onClick={onClickNext} style={{ cursor: 'pointer' }}>
             <Text>next</Text>
             <HStack>
@@ -38,6 +40,7 @@ export const Pagination: React.FC<PaginationProps> = ({
               <ArrowForwardIcon boxSize='6' color='blue.500' />
             </HStack>
           </VStack>
+        : <Center>{lastButton}</Center>
       }
     </Flex>
   )

@@ -7,7 +7,7 @@ export type MenuNavigationProps = {
   setStepIndex: React.Dispatch<React.SetStateAction<number>>
   stepErrors: boolean[]
   onClickMenuItem: () => void
-  onClickConfirmButton: () => void
+  bottomButton: React.ReactNode
 }
 
 export const MenuNavigation: React.FC<MenuNavigationProps> = ({
@@ -15,7 +15,7 @@ export const MenuNavigation: React.FC<MenuNavigationProps> = ({
   setStepIndex,
   stepErrors,
   onClickMenuItem,
-  onClickConfirmButton
+  bottomButton
 }) => {
   return (
     <Menu isOpen>
@@ -39,14 +39,7 @@ export const MenuNavigation: React.FC<MenuNavigationProps> = ({
         </Box>
 
         <Center>
-          <Button
-            colorScheme="blue"
-            disabled={stepErrors.find(error => error)}
-            onClick={onClickConfirmButton}
-            size='lg'
-          >
-              確認画面へ
-          </Button>
+          {bottomButton}
         </Center>
       </MenuList>
     </Menu>
