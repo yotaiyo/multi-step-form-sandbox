@@ -13,12 +13,13 @@ export const LabelAndSelectInput = React.forwardRef<HTMLSelectElement, LabelAndS
   onBlur,
   width,
   label,
+  placeholder,
   children
 }, ref) => {
   return (
     <FormControl>
       {label && <FormLabel>{label}</FormLabel>}
-      <Select ref={ref} id={id} name={name} onChange={onChange} value={value} onBlur={onBlur} width={width}>{children}</Select>
+      <Select ref={ref} id={id} name={name} onChange={onChange} value={value} onBlur={onBlur} width={width} placeholder={placeholder}>{children}</Select>
     </FormControl>
   )
 })
