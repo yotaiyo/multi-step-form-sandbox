@@ -23,7 +23,6 @@ export const CarrerStep: React.FC<CarrerStepProps> = ({
   })
   const { register, formState: { errors } } = methods
 
-  console.count('CarrerStepがレンダリングされた回数')
   return (
     <StepView
       {...props}

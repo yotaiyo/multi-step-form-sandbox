@@ -1,13 +1,17 @@
 import { VStack, HStack, Text, Flex, Button } from '@chakra-ui/react'
 import { Heading } from '../Heading'
 import { Pagination } from '../Pagination'
-import { MenuNavigation, MenuNavigationProps } from './MenuNavigation'
+import { MenuNavigation } from './MenuNavigation'
 
-export type StepViewProps = MenuNavigationProps & {
+export type StepViewProps = {
   stepIndex: number
+  stepTitles: string[]
+  setStepIndex: React.Dispatch<React.SetStateAction<number>>
+  stepErrors: boolean[]
   onClickPrevious: () => void
   onClickNext: () => void
   onClickConfirmButton: () => void
+  onClickMenuItem: () => void
 }
 
 export const StepView: React.FC<StepViewProps> = ({

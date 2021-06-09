@@ -1,5 +1,5 @@
 import React from 'react'
-import { Center, Box, Menu, MenuList, MenuItem, Button } from '@chakra-ui/react'
+import { Center, Box, Menu, MenuList, MenuItem } from '@chakra-ui/react'
 import { WarningTwoIcon, CheckIcon } from '@chakra-ui/icons'
 
 export type MenuNavigationProps = {

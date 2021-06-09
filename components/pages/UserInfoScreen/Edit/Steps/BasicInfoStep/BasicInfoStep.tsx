@@ -23,7 +23,6 @@ export const BasicInfoStep: React.FC<BasicInfoStepProps> = ({
   })
   const { register, formState: { errors } } = methods
 
-  console.count('BasicInfoStepがレンダリングされた回数')
   return (
     <StepView
       {...props}

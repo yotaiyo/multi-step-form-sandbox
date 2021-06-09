@@ -19,7 +19,6 @@ export const ContactInfoStep: React.FC<ContactInfoStepProps> = ({
   const { methods, setValues } = useContactInfo({ stepIndex, stepErrors, setStepErrors })
   const { register, formState: { errors }} = methods
 
-  console.count('ContactInfoStepがレンダリングされた回数')
   return (
     <StepView
       {...props}
