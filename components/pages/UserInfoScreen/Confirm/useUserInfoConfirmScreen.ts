@@ -1,15 +1,9 @@
 import {
-  useBasicInfoRecoilStates,
-  useCarrerRecoilStates,
-  useContactInfoRecoilStates,
-  useSelfIntroductionRecoilStates
+  useUserInfoRecoilStates
 } from '../../../../recoil'
 
 export const useUserInfoConfirmScreen = () => {
-  const { basicInfo } = useBasicInfoRecoilStates()
-  const { carrer } = useCarrerRecoilStates()
-  const { contactInfo } = useContactInfoRecoilStates()
-  const { selfIntroduction } = useSelfIntroductionRecoilStates()
+  const { basicInfo, carrer, contactInfo, selfIntroduction } = useUserInfoRecoilStates()
 
   return {
     basicInfo,
