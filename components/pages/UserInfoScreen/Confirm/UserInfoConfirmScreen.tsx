@@ -66,14 +66,14 @@ export const UserInfoConfirmScreen: React.FC = () => {
 
   return (
     <Center>
-      <Box backgroundColor='white' width='1024px' padding='24px' borderRadius='12px' >
-        <VStack spacing='12px' align='start'>
+      <Box backgroundColor='white' width='1024px' padding='6' borderRadius='8' >
+        <VStack spacing='4' align='start'>
           <Heading variant='sectionTitle'>確認画面</Heading>
 
           <Box>
-            <VStack spacing='4px' align='start'>
+            <VStack spacing='1' align='start'>
               <Heading variant='blockTitle'>基本情報</Heading>
-              <VStack spacing='4px' align='start'>
+              <VStack spacing='1' align='start'>
                 <Text>お名前: {name}</Text>
                 <Text>カナ: {nameKana}</Text>
                 <Text>生年月日: {`${birthDayYear ? birthDayYear + '年' : ''}${birthDayMonth ? birthDayMonth + '月' : ''}${birthDayDay ? birthDayDay + '日' : ''}`}</Text>
@@ -86,9 +86,9 @@ export const UserInfoConfirmScreen: React.FC = () => {
           </Box>
 
           <Box>
-            <VStack spacing='4px' align='start'>
+            <VStack spacing='1' align='start'>
               <Heading variant='blockTitle'>職業</Heading>
-              <VStack spacing='4px' align='start'>
+              <VStack spacing='1' align='start'>
                 <Text>会社名: {companyName}</Text>
                 <Text>役職: {position}</Text>
                 <Text>雇用形態: {employmentStatus}</Text>
@@ -101,9 +101,9 @@ export const UserInfoConfirmScreen: React.FC = () => {
           </Box>
 
           <Box>
-            <VStack spacing='4px' align='start'>
+            <VStack spacing='1' align='start'>
               <Heading variant='blockTitle'>連絡先</Heading>
-              <VStack spacing='4px' align='start'>
+              <VStack spacing='1' align='start'>
                 <Text>携帯番号: {mobilePhone}</Text>
                 <Text>郵便番号: {postalCode}</Text>
                 <Text>住所: {`${prefecture} ${city}${block ? block : ''}${building ? ' ' + building : ''}`}</Text>
@@ -114,9 +114,9 @@ export const UserInfoConfirmScreen: React.FC = () => {
           </Box>
 
           <Box>
-            <VStack spacing='4px' align='start'>
+            <VStack spacing='1' align='start'>
               <Heading variant='blockTitle'>自己紹介</Heading>
-              <VStack spacing='4px' align='start'>
+              <VStack spacing='1' align='start'>
                 <Text>好きなスポーツについて: {sports}</Text>
                 <Text>最近読んだ本について: {book}</Text>
                 <Text>よく観るテレビ番組について: {tv}</Text>
