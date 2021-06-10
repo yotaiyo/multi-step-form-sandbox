@@ -24,7 +24,7 @@ export const ReactHookForm: React.FC = () => {
       <Box width='1024px' backgroundColor='white' padding='12'>
         <form onSubmit={handleSubmit(onSubmit)}>
           <VStack spacing='4'>
-          <Heading variant='sectionTitle'>react-hook-form</Heading>
+          <Heading variant='sectionTitle'>React Hook Form</Heading>
             <LabelAndTextareaInput label='form1' {...register('form1')} />
             <LabelAndTextareaInput label='form2' {...register('form2')} />
             <LabelAndTextareaInput label='form3' {...register('form3')} />
