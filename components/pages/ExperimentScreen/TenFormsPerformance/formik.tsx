@@ -26,9 +26,9 @@ export const Formik: React.FC = () => {
 
   return (
     <Center>
-      <Box width='1024px' backgroundColor='white' padding='48px'>
+      <Box width='1024px' backgroundColor='white' padding='12'>
         <form onSubmit={formik.handleSubmit}>
-          <VStack spacing='12px'>
+          <VStack spacing='4'>
           <Heading variant='sectionTitle'>Formik</Heading>
             <LabelAndTextareaInput
               id='form1'

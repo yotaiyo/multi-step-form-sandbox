@@ -21,9 +21,9 @@ export const ReactHookForm: React.FC = () => {
 
   return (
     <Center>
-      <Box width='1024px' backgroundColor='white' padding='48px'>
+      <Box width='1024px' backgroundColor='white' padding='12'>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <VStack spacing='12px'>
+          <VStack spacing='4'>
           <Heading variant='sectionTitle'>react-hook-form</Heading>
             <LabelAndTextareaInput label='form1' {...register('form1')} />
             <LabelAndTextareaInput label='form2' {...register('form2')} />
