@@ -1,4 +1,4 @@
-import { VStack, HStack, Text, Flex, Button } from '@chakra-ui/react'
+import { VStack, HStack, Text, Flex, Button, Box } from '@chakra-ui/react'
 import { Heading } from '../Heading'
 import { Pagination } from '../Pagination'
 import { MenuNavigation } from './MenuNavigation'
@@ -40,9 +40,9 @@ export const StepView: React.FC<StepViewProps> = ({
   )
 
   return (
-    <HStack align='unset' spacing='48px'>
-      <VStack spacing='48px' align='unset' width='60%'>
-        <VStack align='unset'>
+    <HStack align='start' spacing='48px'>
+      <VStack spacing='48px' align='stretch' width='60%'>
+        <VStack align='stretch'>
           <HStack>
             <Heading variant='screenTitle'>{stepIndex + 1}</Heading>
             <Flex height='40px'>
