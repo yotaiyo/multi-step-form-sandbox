@@ -40,12 +40,12 @@ export const StepView: React.FC<StepViewProps> = ({
   )
 
   return (
-    <HStack align='start' spacing='48px'>
-      <VStack spacing='48px' align='stretch' width='60%'>
+    <HStack align='start' spacing='10'>
+      <VStack spacing='12' align='stretch' width='60%'>
         <VStack align='stretch'>
           <HStack>
             <Heading variant='screenTitle'>{stepIndex + 1}</Heading>
-            <Flex height='40px'>
+            <Flex height='10'>
               <Text color='gray.500' alignSelf='flex-end'>{`/ ${stepTitles.length}`}</Text>
             </Flex>
           </HStack>

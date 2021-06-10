@@ -36,7 +36,7 @@ export const SelfIntroductionStep: React.FC<DefaultStepProps> = ({
         setValues()
       }}
     >
-      <VStack spacing="24px">
+      <VStack spacing="6">
         <LabelAndTextareaInput label='好きなスポーツについて教えてください' {...register('sports')} />
         <LabelAndTextareaInput label='最近読んだ本について教えてください' {...register('book')} />
         <LabelAndTextareaInput label='よく観るテレビ番組について教えてください' {...register('tv')} />

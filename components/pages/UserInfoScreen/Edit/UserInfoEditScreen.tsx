@@ -75,7 +75,7 @@ export const UserInfoEditScreen: React.FC<UserInfoEditScreenProps> = ({
 
   return (
     <Center>
-      <Box backgroundColor='white' width='1024px' padding='24px' borderRadius='12px' >
+      <Box backgroundColor='white' width='1024px' padding='6' borderRadius='8' >
         {stepConfigs[stepIndex].render({
           stepIndex,
           setStepIndex,

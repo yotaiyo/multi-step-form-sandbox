@@ -19,8 +19,8 @@ export const MenuNavigation: React.FC<MenuNavigationProps> = ({
 }) => {
   return (
     <Menu isOpen>
-      <MenuList padding='12px'>
-        <Box marginBottom='8px'>
+      <MenuList padding='2'>
+        <Box marginBottom='2'>
           {stepTitles.map((title, index) => {
             return (
               <MenuItem

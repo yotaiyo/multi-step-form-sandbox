@@ -40,7 +40,7 @@ export const CarrerStep: React.FC<CarrerStepProps> = ({
         setValues()
       }}
     >
-      <VStack spacing="24px">
+      <VStack spacing="6">
         <LabelAndTextInput
           id='companyName'
           label='会社名'

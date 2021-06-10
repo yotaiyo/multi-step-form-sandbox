@@ -36,7 +36,7 @@ export const ContactInfoStep: React.FC<ContactInfoStepProps> = ({
         setValues()
       }}
     >
-      <VStack spacing='24px'>
+      <VStack spacing="6">
         <LabelAndTextInput
           id='mobilePhone'
           label='携帯番号'

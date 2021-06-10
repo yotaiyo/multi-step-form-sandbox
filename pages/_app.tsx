@@ -7,7 +7,7 @@ const theme = extendTheme({
     global: {
       body: {
         bg: 'gray.100',
-        padding: '64px'
+        padding: '10'
       },
     },
   },

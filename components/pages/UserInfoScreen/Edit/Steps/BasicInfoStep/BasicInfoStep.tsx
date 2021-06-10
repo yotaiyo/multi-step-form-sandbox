@@ -40,7 +40,7 @@ export const BasicInfoStep: React.FC<BasicInfoStepProps> = ({
         setValues()
       }}
     >
-      <VStack spacing="24px">
+      <VStack spacing="6">
         <LabelAndTextInput
           id='name'
           label='お名前'
