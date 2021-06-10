@@ -15,13 +15,15 @@ export const IndexScreen: React.FC = () => {
               </ChakraLink>
             </a>
           </Link>
-          <Link href='https://github.com/yotaiyo/multi-step-form-sandbox'>
-            <a>
-              <ChakraLink isExternal>
-                Source Code <ExternalLinkIcon mx='1' />
-              </ChakraLink>
-            </a>
-          </Link>
+          <a
+            target="_blank"
+            href="https://github.com/yotaiyo/multi-step-form-sandbox"
+            rel="noopener noreferrer"
+          >
+            <ChakraLink isExternal>
+              Source Code <ExternalLinkIcon mx='1' />
+            </ChakraLink>
+          </a>
         </VStack>
       </Box>
     </Center>
